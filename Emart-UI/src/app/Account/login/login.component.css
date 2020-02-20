@@ -1,0 +1,51 @@
+
+.b1{
+    display:inline-block;
+    width: 370px;
+    height: 450px;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.5);
+    background-size: 400px 480px;
+    margin-left:590px;    
+    margin-top:150px;
+    position: relative;
+     } 
+h1
+{
+    color:white;
+    margin-left: 60px;  
+} 
+ .al{
+    margin-left: 40px;
+} 
+
+ .btn {
+        padding: 9px 14px;
+        margin-left: 90px;
+    }
+label{
+    font-weight: bold;
+}
+.links{
+    color: white;
+    margin-left: 4px;
+    }
+    
+a{
+    margin-left: 4px;
+    color:rgb(21, 155, 218);
+    } 
+@media screen and (max-width: 700px) {  
+        .login{ 
+            display: block; 
+            float: none; 
+        } 
+        
+    } 
+    @media screen and (max-width: 400px) {
+         .login{ 
+            display: block; 
+            float: none; 
+        } 
+        
+    } 

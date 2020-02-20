@@ -21,6 +21,7 @@ import { DailyReportsComponent } from './Admin/daily-reports/daily-reports.compo
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
+import { HomeComponent } from './Account/home/home.component';
 
 
 const routes: Routes = [
@@ -44,9 +45,11 @@ const routes: Routes = [
          {path:'Block-Unblock-Seller',component:BlockUnblockSellerComponent},
          {path:'Daily-Reports',component:DailyReportsComponent}
   ]},
+  {path:'Home',component:HomeComponent,children:[
   {path:'Login',component:LoginComponent},
   {path:'Register-Seller',component:RegisterSellerComponent},
-  {path:'Register-Buyer',component:RegisterBuyerComponent}];
+  {path:'Register-Buyer',component:RegisterBuyerComponent}
+]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

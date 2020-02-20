@@ -23,6 +23,7 @@ import { DailyReportsComponent } from './Admin/daily-reports/daily-reports.compo
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
+import { HomeComponent } from './Account/home/home.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.
     DailyReportsComponent,
     LoginComponent,
     RegisterSellerComponent,
-    RegisterBuyerComponent
+    RegisterBuyerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
