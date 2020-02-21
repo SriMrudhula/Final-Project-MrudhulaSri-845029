@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emart.AccountService", "Emart.AccountService\Emart.AccountService.csproj", "{20BF2A2D-B0EF-48E9-8A4C-5731634B582F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emart.GateWay", "Emart.GateWay\Emart.GateWay.csproj", "{C74E622D-D6DE-4748-AAD0-67053B3AE5FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emart.SellerService", "Emart.SellerService\Emart.SellerService.csproj", "{DE1A5751-8F90-4E29-9EA8-589A5B0CC49E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20BF2A2D-B0EF-48E9-8A4C-5731634B582F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20BF2A2D-B0EF-48E9-8A4C-5731634B582F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20BF2A2D-B0EF-48E9-8A4C-5731634B582F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20BF2A2D-B0EF-48E9-8A4C-5731634B582F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C74E622D-D6DE-4748-AAD0-67053B3AE5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C74E622D-D6DE-4748-AAD0-67053B3AE5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C74E622D-D6DE-4748-AAD0-67053B3AE5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C74E622D-D6DE-4748-AAD0-67053B3AE5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE1A5751-8F90-4E29-9EA8-589A5B0CC49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE1A5751-8F90-4E29-9EA8-589A5B0CC49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE1A5751-8F90-4E29-9EA8-589A5B0CC49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE1A5751-8F90-4E29-9EA8-589A5B0CC49E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA22FF08-F358-43E1-B831-1398A8B5A524}
+	EndGlobalSection
+EndGlobal

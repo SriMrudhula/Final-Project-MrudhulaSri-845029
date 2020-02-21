@@ -1,0 +1,34 @@
+{
+  "ReRoutes": [
+    //Accounts
+    {
+      "DownstreamPathTemplate": "/api/Account/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 51131
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Account/{catchAll}"
+
+    }
+
+    //// Order
+    //{
+    //  "DownstreamPathTemplate": "/api/Order/{catchAll}",
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //      "Host": "localhost",
+    //      "Port": 54804
+    //    }
+      //],
+      //"UpstreamPathTemplate": "/Order/{catchAll}"
+
+    //}
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:51772"
+  }
+}
