@@ -9,7 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
+using Emart.SellerService.Repositories;
+using Emart.SellerService.Models;
 namespace Emart.SellerService
 {
     public class Startup
@@ -24,6 +25,9 @@ namespace Emart.SellerService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<EmartContext>();
+            services.AddTransient<ISellerRepository, SellerRepository>();
+            services.AddTransient<IItemInterface,ItemRepository>();
             services.AddControllers();
         }
 

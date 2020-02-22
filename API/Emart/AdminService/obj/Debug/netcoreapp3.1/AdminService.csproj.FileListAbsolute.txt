@@ -1,0 +1,17 @@
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\appsettings.Development.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\appsettings.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.exe
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.deps.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.runtimeconfig.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.runtimeconfig.dev.json
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\bin\Debug\netcoreapp3.1\AdminService.pdb
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\staticwebassets\AdminService.StaticWebAssets.Manifest.cache
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\staticwebassets\AdminService.StaticWebAssets.xml
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.MvcApplicationPartsAssemblyInfo.cache
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.AssemblyInfoInputs.cache
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.AssemblyInfo.cs
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.RazorTargetAssemblyInfo.cache
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\AdminService\obj\Debug\netcoreapp3.1\AdminService.pdb

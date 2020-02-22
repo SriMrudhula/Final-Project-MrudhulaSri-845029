@@ -11,7 +11,7 @@ namespace Emart.SellerService.Models
         }
 
         public int SubCatId { get; set; }
-        public string SubCat { get; set; }
+        public string SubCatName { get; set; }
         public string SubCatDesc { get; set; }
         public int? Gst { get; set; }
         public int? CatId { get; set; }

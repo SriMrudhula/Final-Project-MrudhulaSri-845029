@@ -9,6 +9,8 @@ namespace Emart.SellerService.Models
         public int NoOfItems { get; set; }
         public DateTime? DateTime { get; set; }
         public string TransType { get; set; }
+        public string Remarks { get; set; }
+        public string TransStatus { get; set; }
         public int? BuyerId { get; set; }
         public int? SellerId { get; set; }
         public int? ItemId { get; set; }

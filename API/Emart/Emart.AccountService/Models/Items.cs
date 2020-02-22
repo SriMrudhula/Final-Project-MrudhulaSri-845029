@@ -18,8 +18,10 @@ namespace Emart.AccountService.Models
         public string Remarks { get; set; }
         public int? CatId { get; set; }
         public int? SubCatId { get; set; }
+        public int? SellerId { get; set; }
 
         public virtual Category Cat { get; set; }
+        public virtual Seller Seller { get; set; }
         public virtual SubCategory SubCat { get; set; }
         public virtual ICollection<PurchaseHist> PurchaseHist { get; set; }
     }
