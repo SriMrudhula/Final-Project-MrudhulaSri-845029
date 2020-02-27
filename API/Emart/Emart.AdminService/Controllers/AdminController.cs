@@ -45,7 +45,88 @@ namespace Emart.AdminService.Controllers
                 return NotFound(e.Message);
             }
         }
-        
+        [HttpGet]
+        [Route("GetCategory")]
+        public IActionResult GetCat()
+        {
+            try
+            {
+                return Ok(_repo.GetCategories());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategory/{catId}")]
+        public IActionResult GetSubCat(int catId)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCategories(catId));
+            }
+            catch (Exception e)
+            {
+
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSeller")]
+        public IActionResult GetSeller()
+        {
+            try
+            {
+                return Ok(_repo.GetSeller());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetBuyer")]
+        public IActionResult GetBuyer()
+        {
+            try
+            {
+                return Ok(_repo.GetBuyer());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("DeleteCategory")]
+        public IActionResult DeleteCategory(Category cat)
+        {
+            try
+            {
+                _repo.DeleteCategory(cat);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("DeleteSubcategory")]
+        public IActionResult DeleteSubcategory(SubCategory subCat)
+        {
+            try
+            {
+                _repo.DeleteSubCategory(subCat);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+
 
     }
 }

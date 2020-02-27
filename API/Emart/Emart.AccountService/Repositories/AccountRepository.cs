@@ -13,9 +13,9 @@ namespace Emart.AccountService.Repositories
         {
             _context=context;
         }
-        public void BuyerRegister(Buyer b)
+        public void BuyerRegister(Buyer buyer)
         {
-            _context.Buyer.Add(b);
+            _context.Buyer.Add(buyer);
             _context.SaveChanges();
         }
 

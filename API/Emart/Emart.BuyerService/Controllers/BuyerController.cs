@@ -68,7 +68,7 @@ namespace Emart.BuyerService.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                return NotFound(e.InnerException.Message);
             }
         }
         [HttpGet]
@@ -81,7 +81,7 @@ namespace Emart.BuyerService.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                return NotFound(e.InnerException.Message);
             }
         }
         [HttpGet]
@@ -94,11 +94,12 @@ namespace Emart.BuyerService.Controllers
             }
             catch (Exception e)
             {
+
                 return NotFound(e.Message);
             }
         }
         [HttpGet]
-        [Route("GetTransactionHistory/{bid}")]
+        [Route("TransactionHistory/{buyer_id}")]
         public IActionResult PurchHist(int buyer_id)
         {
             try
@@ -107,7 +108,7 @@ namespace Emart.BuyerService.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                return NotFound(e.InnerException.Message);       
             }
         }
 

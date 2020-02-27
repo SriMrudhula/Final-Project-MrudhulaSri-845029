@@ -22,6 +22,8 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { HomeComponent } from './Account/home/home.component';
+import { ViewCategoriesComponent } from './Admin/view-categories/view-categories.component';
+import { ViewSubCategoriesComponent } from './Admin/view-sub-categories/view-sub-categories.component';
 
 
 const routes: Routes = [
@@ -41,6 +43,8 @@ const routes: Routes = [
   {path:'Admin',component:AdminLandingPageComponent,children:[
          {path:'Add-Category',component:AddCategoryComponent},
          {path:'Add-Subcategory',component:AddSubcategoryComponent},
+         {path:'View-Category',component:ViewCategoriesComponent},
+         {path:'View-Subcategory',component:ViewSubCategoriesComponent},
          {path:'Block-Unblock-Buyer',component:BlockUnblockBuyerComponent},
          {path:'Block-Unblock-Seller',component:BlockUnblockSellerComponent},
          {path:'Daily-Reports',component:DailyReportsComponent}

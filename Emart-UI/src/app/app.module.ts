@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuyerLandingPageComponent } from './Buyer/buyer-landing-page/buyer-landing-page.component';
@@ -24,7 +24,9 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { HomeComponent } from './Account/home/home.component';
-
+import {ReactiveFormsModule} from '@angular/forms';
+import { ViewCategoriesComponent } from './Admin/view-categories/view-categories.component';
+import { ViewSubCategoriesComponent } from './Admin/view-sub-categories/view-sub-categories.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,11 +50,16 @@ import { HomeComponent } from './Account/home/home.component';
     LoginComponent,
     RegisterSellerComponent,
     RegisterBuyerComponent,
-    HomeComponent
+    HomeComponent,
+    ViewCategoriesComponent,
+    ViewSubCategoriesComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

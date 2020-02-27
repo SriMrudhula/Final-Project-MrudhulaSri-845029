@@ -1,0 +1,28 @@
+.main {
+    margin-left: 160px; 
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+  td, th {
+      color:white;
+    text-align: left;
+    padding: 18px;
+}
+table {
+
+    font-family: arial;
+    border-collapse: collapse;
+}
+.b1{
+    display:inline-block;
+    width: 700px;
+    height: 600px;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.5);
+    background-size: 400px 480px;
+    margin-left:450px;    
+    margin-top:150px;
+    position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+     } 

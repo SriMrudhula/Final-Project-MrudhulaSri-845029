@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Emart-UI';
+
+  btnClick= function () {
+    this.router.navigateByUrl('/user');
+};
+
 }

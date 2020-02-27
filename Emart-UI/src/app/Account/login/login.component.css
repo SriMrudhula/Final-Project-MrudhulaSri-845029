@@ -1,7 +1,6 @@
-
 .b1{
     display:inline-block;
-    width: 370px;
+    width: 350px;
     height: 450px;
     padding: 50px;
     background-color: rgba(0,0,0,0.5);
@@ -10,19 +9,19 @@
     margin-top:150px;
     position: relative;
      } 
-h1
-{
-    color:white;
-    margin-left: 60px;  
-} 
+     .invalid-feedback{
+        color:red;
+    }
+    h1
+    {
+        color:white;
+        margin-left: 60px;  
+    } 
  .al{
     margin-left: 40px;
 } 
 
- .btn {
-        padding: 9px 14px;
-        margin-left: 90px;
-    }
+
 label{
     font-weight: bold;
 }

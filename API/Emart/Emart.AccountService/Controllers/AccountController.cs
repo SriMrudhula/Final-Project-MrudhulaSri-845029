@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Emart.AccountService.Repositories;
 using Emart.AccountService.Models;
+using Microsoft.AspNetCore.Cors;
 namespace Emart.AccountService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("AllowOrigin")]
     public class AccountController : ControllerBase
     {
         private readonly IAccountRepository _repo;
@@ -47,25 +49,25 @@ namespace Emart.AccountService.Controllers
         }
         [HttpPost]
         [Route("SellerRegister")]
-        public IActionResult SellerRegister(Seller s)
+        public IActionResult SellerRegister(Seller seller)
         {
             try
             {
-                _repo.SellerRegister(s);
+                _repo.SellerRegister(seller);
                 return Ok();
             }
             catch(Exception e)
             {
-                return NotFound(e.InnerException.Message);
+                return NotFound(e.Message);
             }
         }
         [HttpPost]
         [Route("BuyerRegister")]
-        public IActionResult BuyerRegister(Buyer b)
+        public IActionResult BuyerRegister(Buyer buyer)
         {
             try
             {
-                _repo.BuyerRegister(b);
+                _repo.BuyerRegister(buyer);
                 return Ok();
             }
             catch(Exception e)

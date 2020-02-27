@@ -50,6 +50,18 @@
         }
       ],
       "UpstreamPathTemplate": "/api/Buyer/{catchAll}"
+    },
+    //AdminService
+    {
+      "DownstreamPathTemplate": "/api/Admin/{catchAll}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 60542
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Admin/{catchAll}"
     }
   ],
   "GlobalConfiguration": {

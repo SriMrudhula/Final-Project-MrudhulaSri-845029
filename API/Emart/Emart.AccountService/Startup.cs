@@ -27,6 +27,15 @@ namespace Emart.AccountService
         {
             services.AddDbContext<EmartContext>();
             services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options =>
+                 options.AllowAnyOrigin()
+                         .AllowAnyMethod()
+                         .AllowAnyHeader()
+                         );
+
+            });
             services.AddControllers();
         }
 
@@ -41,7 +50,7 @@ namespace Emart.AccountService
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

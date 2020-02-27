@@ -1,12 +1,12 @@
 export class Seller {
     id:number;
-   uname:string;
+   username:string;
    pwd:string;
-   cmpName:string;
+   companyName:string;
    gstin:string;
-   abtCmp:string;
-   addr:string;
-   website:string;
+   abtCompany:string;
+   postalAddr:string;
+   compWebsite:string;
    email:string;
    mobile:string;
 

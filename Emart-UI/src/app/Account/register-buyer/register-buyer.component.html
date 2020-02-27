@@ -1,45 +1,73 @@
-<html>
-	<head>
-		<title>Bootstrap Example</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	  </head>
-<body>
-  <div class="b1">
-    <h1>Login</h1>
+<!-- <div class="b1">
+    <h2>Register</h2>
     <br>
-     <form>
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>  
-			<input id="name" type="text" class="form-control" name="uname" placeholder="Username">
-		</div><br>
-		<div class="input-group">
-			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-			<input id="password" type="password" class="form-control" name="password" placeholder="Password">
-		</div><br>
-     <label>
-    <select class="form-control" >
-      <option value="">User</option>
-      <option value="Admin">Admin</option>
-      <option value="Seller">Seller</option>
-      <option value="Buyer">Buyer</option>
-      </select></label>
-    <br><br>
-    <button class="btn btn-primary">Login</button><br>
+     <form [formGroup]="accountForm">
+		<div class="form-group">
+			<input type="text" formControlName="username" class="form-control" placeholder="Username">
+		</div>
+		<div class="form-group">
+			<input  type="password" formControlName="pwd" class="form-control" placeholder="Password">
+		</div>
+		<div class="form-group">
+			<input type="email"  formControlName="email" class="form-control" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<input  type="text" formControlName="mobile" placeholder="Mobile number" class="form-control">
+		</div>
+	<div >
+	<button class="btn btn-primary mr-1" (click)="AddBuyer()">Register</button>
+	<button class="btn btn-primary mr-1" type="reset" (click)="onReset()">Reset</button>
+</div>
 	<br>	
 		<div class="d-flex justify-content-center links">
-			Don't have an account?<a href="#">Register</a>
+			Have an account?<a [routerLink]="['Login']" >Login</a>
 		</div>
-		<div class="d-flex justify-content-center">
-			<a href="#">Forgot your password?</a>
-		</div>
-
     </form>
-    </div>
+	</div> -->
+	
+	<div  class="jumbotron jumbotron-fluid b1" >
+		<h2>Registration</h2><br>
+	  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+		  <div class="form-group ">
+			  <label> 
+			  <input type="text" formControlName="username" placeholder="UserName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
+			  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+				  <div *ngIf="f.username.errors.required">NAME is required</div>
+			  </div> </label>
+		  </div>
+		  <div class="form-group">
+			  <label>
+			  <input type="text" formControlName="emailid" class="form-control" placeholder="Email Id" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
+				  <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+					  <div *ngIf="f.emailid.errors.required">Email is required</div>
+					  <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
+				  </div></label>
+		  </div>
+		  <div class="form-group">
+			  <label>
+			  <input type="password" formControlName="pwd" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
+			  <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+				  <div *ngIf="f.pwd.errors.required">Password is required</div>
+			  </div>
+			</label>
+		  </div>
+		  <div class="form-group">
+			  <label>
+			  <input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+			  <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+				  <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>	  
+			  </div>
+			</label>
+	</div>
 
-</body>
-</html>
+	  <div class="text-center">
+		<button class="btn btn-primary mr-1" >Register</button>
+		<button class="btn btn-primary mr-1" type="reset" (click)="onReset()">Reset</button>
+	  </div>
+	  <br>	
+	  <div class="d-flex justify-content-center links">
+		  Have an account?<a [routerLink]="['Login']" >Login</a>
+	  </div>
+	  </form>
+	</div>
 

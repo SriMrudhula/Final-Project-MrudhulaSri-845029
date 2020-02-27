@@ -9,5 +9,13 @@ namespace Emart.AdminService.Repositories
     {
         void AddCategories(Category cat);
         void AddSubCategories(SubCategory subCat);
+        List<Category> GetCategories();
+        List<SubCategory> GetSubCategories(int cat_id);
+        List<Seller> GetSeller();
+        List<Buyer> GetBuyer();
+        void DeleteCategory(Category cat_id);
+        void DeleteSubCategory(SubCategory subCat_id);
+
+
     }
 }

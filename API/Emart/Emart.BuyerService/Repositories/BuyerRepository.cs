@@ -38,8 +38,8 @@ namespace Emart.BuyerService.Repositories
 
         public List<PurchaseHist> PurchaseHistory(int bid)
         {
-            List<PurchaseHist> purchHist=_context.PurchaseHist.Where(e=>e.BuyerId==bid).ToList();
-                return purchHist;
+            List<PurchaseHist> item = _context.PurchaseHist.Where(e => e.Id == bid).ToList();
+            return item;
         }
         public List<Category> GetCategories()
         {

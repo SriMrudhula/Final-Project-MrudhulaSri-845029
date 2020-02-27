@@ -1,0 +1,26 @@
+.main {
+    margin-left: 160px; 
+    font-size: 28px; 
+    padding: 0px 10px;
+  }
+  td, th {
+      color:white;
+    text-align: left;
+    padding: 18px;
+}
+label{
+    color:white;
+}
+.b1{
+    display:inline-block;
+    width: 780px;
+    height: 600px;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.5);
+    background-size: 400px 480px;
+    margin-left:450px;    
+    margin-top:150px;
+    position: relative;
+    overflow: auto;
+    overflow-x: hidden;
+     } 

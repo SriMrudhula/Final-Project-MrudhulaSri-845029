@@ -1,8 +1,8 @@
 export class SubCategory {
-   subcategory_id:number;
-subcategory_name:string;
-category_id:number
-brief_details:string;
+   subCatId:number;
+   subCatName:string;
+   catId:number;
+   subCatDesc:string;
    gst:number;
 
 }

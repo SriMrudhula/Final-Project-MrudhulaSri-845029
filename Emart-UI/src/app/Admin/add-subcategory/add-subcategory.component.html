@@ -1,1 +1,40 @@
-<p>add-subcategory works!</p>
+<div  class="jumbotron jumbotron-fluid b1" >
+    <h1>SubCategory</h1><br>
+  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+        <label>
+        <select  formControlName="catName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.catName.errors }">
+             <option *ngFor="let item of list" [value]=item.catId>{{item.catName}}</option>
+        </select>
+        </label>
+        <div *ngIf="submitted && f.catName.errors" class="invalid-feedback">
+            <div *ngIf="f.catName.errors.required">Category is required</div>
+        </div>
+    </div>
+
+
+      <div class="form-group ">
+          <label> 
+          <input type="text" formControlName="subCatName" placeholder="Subcategory Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subCatName.errors }" /> 
+          <div *ngIf="submitted && f.subCatName.errors" class="invalid-feedback">
+              <div *ngIf="f.subCatName.errors.required">Category Name is required</div>
+          </div> </label>
+      </div>
+      <div class="form-group ">
+        <label> 
+        <input type="number" formControlName="gst" placeholder="GST%"class="form-control" />         
+ </label>
+    </div>
+
+      <div class="form-group">
+        <textarea placeholder="SubCategory Description" formControlName="subCatDesc"></textarea>
+    </div>
+  <div class="text-center">
+    <button class="btn btn-primary mr-1" >Add</button>
+  </div>
+  </form>
+</div>
+
+
+
