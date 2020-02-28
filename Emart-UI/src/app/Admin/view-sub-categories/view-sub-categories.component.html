@@ -2,30 +2,56 @@
     <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label>Category:
-        <select  formControlName="catName">
-             <option *ngFor="let item of list" [value]=item.catId>{{item.catName}}</option>
+        <select  formControlName="catName" (click)="GetSubCategory()">
+         <option *ngFor="let item of list" [value]=item.catId>{{item.catName}}</option>
         </select>
     </label> &nbsp;
-        <button class="btn btn-secondary mr-1" >Click</button>
     </div>
-
     </form>
     <div class="table">
 <div class="table-responsive">
             <tr >
-                <th>Subcategory Id</th>
                 <th>SubCubcategory Name</th>
 				<th>SubCubcategory Description</th>
 				<th></th>
 				<th></th>
             </tr>
             <tr *ngFor="let item of sublist">
-              <td>{{item.subCatId}}</td>
               <td>{{item.subCatName}}</td>
               <td>{{item.subCatDesc}}</td>
-              <td><button class="btn btn-primary mr-1">Edit</button></td>
-              <td><button class="btn btn-danger mr-1 ">Delete</button></td>
+              <td><button class="btn btn-primary mr-1" (click)="CategoryById(item.catId)" data-toggle="modal" data-target="#myModal">Edit</button></td>
+              <td><button class="btn btn-danger mr-1 " (click)="Delete(item.subCatId)">Delete</button></td>
             </tr>
         </div>
+        <div class="modal fade b2" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Category</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group ">
+                      <label> Category Name:
+                      <input type="text" formControlName="cName" placeholder="Category Name"class="form-control" > 
+                      </label>
+                    </div>
+                        <div class="form-group">
+                          <label> Category Name:<br>
+                          <textarea placeholder="Category Desc" formControlName="cDesc"></textarea></label>
+                  </div>
+                  
+                  <div class="text-center">
+                  <button class="btn btn-primary mr-1"  (click)="UpdateCategory()" data-dismiss="modal">Save</button>
+                  </div>
+                  </form>
+              </div>
+              <div class="modal-footer ">
+<br><br>
+              </div>
+                    </div>
+                    </div>
+                    </div>
     </div>
 </div>

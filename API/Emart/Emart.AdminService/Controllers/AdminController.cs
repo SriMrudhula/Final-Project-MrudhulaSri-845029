@@ -99,12 +99,12 @@ namespace Emart.AdminService.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteCategory")]
-        public IActionResult DeleteCategory(Category cat)
+        [Route("DeleteCategory/{cat_id}")]
+        public IActionResult DeleteCategory(int cat_id)
         {
             try
             {
-                _repo.DeleteCategory(cat);
+                _repo.DeleteCategory(cat_id);
                 return Ok();
             }
             catch (Exception e)
@@ -113,12 +113,12 @@ namespace Emart.AdminService.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteSubcategory")]
-        public IActionResult DeleteSubcategory(SubCategory subCat)
+        [Route("DeleteSubcategory/{subCat_id}")]
+        public IActionResult DeleteSubcategory(int subCat_id)
         {
             try
             {
-                _repo.DeleteSubCategory(subCat);
+                _repo.DeleteSubCategory(subCat_id);
                 return Ok();
             }
             catch (Exception e)
@@ -126,7 +126,60 @@ namespace Emart.AdminService.Controllers
                 return NotFound(e.Message);
             }
         }
+        [HttpPut]
+        [Route("UpdateCategory")]
+        public IActionResult UpdateCategory(Category cat)
+        {
+            try
+            {
+                _repo.UpdateCategory(cat);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpPut]
+        [Route("UpdateSubcategory")]
+        public IActionResult UpdateSubcategory(SubCategory subcat)
+        {
+            try
+            {
+                _repo.UpdateSubCateory(subcat);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetCategoryById/{cat_id}")]
+        public IActionResult GetCategoryById(int cat_id)
+        {
+            try
+            {
+                return Ok(_repo.GetCategoryById(cat_id));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategoryById/{subcatId}")]
+        public IActionResult GetSubCateoryById(int subcatId)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCateoryById(subcatId));
+            }
+            catch (Exception e)
+            {
 
-
+                return NotFound(e.Message);
+            }
+        }
     }
 }

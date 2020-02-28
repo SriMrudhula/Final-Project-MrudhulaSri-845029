@@ -26,3 +26,12 @@ table {
     overflow: auto;
     overflow-x: hidden;
      } 
+     .modal-body{
+         margin-left:110px;
+     }
+     textarea{
+         border-color:rgba(204, 200, 200, 0.753);
+         color:rgb(110, 101, 101);
+         border-radius:3px;
+         width:220px;
+     }

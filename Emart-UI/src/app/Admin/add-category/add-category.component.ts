@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { AdminService } from 'src/app/Services/admin.service';
 import { Category } from 'src/app/Models/category';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
@@ -11,7 +12,7 @@ export class AddCategoryComponent implements OnInit {
   adminForm:FormGroup;
   cat:Category;
   submitted:boolean=false;
-  constructor(private builder:FormBuilder,private service:AdminService){}
+  constructor(private builder:FormBuilder,private service:AdminService,private router: Router){}
   
     ngOnInit(): void {
       //bussiness functionality
@@ -49,6 +50,7 @@ export class AddCategoryComponent implements OnInit {
         console.log(this.cat);
         this.service.AddCategories(this.cat).subscribe(res=>{
           console.log("record added");
+          this.router.navigateByUrl('/Admin/View-Category');
         },err=>{
           console.log(err)
         })

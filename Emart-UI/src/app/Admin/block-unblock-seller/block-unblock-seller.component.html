@@ -1,1 +1,24 @@
-<p>block-unblock-seller works!</p>
+<div class="b1 ">
+    <div class="table">
+<div class="table-responsive">
+            <tr >
+                <th>UserName</th>
+				<th>Email</th>
+				<th>Mobile</th>
+                <th>Company Name</th>
+                <th>Website</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr *ngFor="let item of list">
+              <td>{{item.username}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.mobile}}</td>
+              <td>{{item.companyName}}</td>
+              <td>{{item.compWebsite}}</td>
+              <td><button class="btn btn-danger mr-1">Block</button></td>
+              <td><button class="btn btn-primary mr-1 ">UnBlock</button></td>
+            </tr>
+        </div>
+    </div>
+</div>

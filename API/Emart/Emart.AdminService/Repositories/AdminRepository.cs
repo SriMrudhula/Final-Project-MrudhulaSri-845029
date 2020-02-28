@@ -42,15 +42,39 @@ namespace Emart.AdminService.Repositories
             List<SubCategory> subCat = _context.SubCategory.Where(e => e.CatId == cat_id).ToList();
             return subCat;
         }
-        public void DeleteCategory(Category cat)
+        public void DeleteCategory(int cat_id)
         {
+            Category cat = _context.Category.Find(cat_id);
             _context.Remove(cat);
             _context.SaveChanges();
         }
-        public void DeleteSubCategory(SubCategory subCat)
+        public void DeleteSubCategory(int subCat_id)
         {
+            SubCategory subCat = _context.SubCategory.Find(subCat_id);
             _context.Remove(subCat);
             _context.SaveChanges();
+        }
+        void IAdminRepository.UpdateCategory(Category cat)
+        {
+                _context.Category.Update(cat);
+                _context.SaveChanges();
+
+            }
+
+            void IAdminRepository.UpdateSubCateory(SubCategory subcat)
+        {
+            _context.SubCategory.Update(subcat);
+            _context.SaveChanges();
+        }
+
+        Category IAdminRepository.GetCategoryById(int cat_id)
+        {
+            return _context.Category.Find(cat_id);
+        }
+
+        SubCategory IAdminRepository.GetSubCateoryById(int subcat_id)
+        {
+            return _context.SubCategory.Find(subcat_id);
         }
     }
 }

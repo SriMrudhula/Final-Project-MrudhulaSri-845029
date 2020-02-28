@@ -13,8 +13,12 @@ namespace Emart.AdminService.Repositories
         List<SubCategory> GetSubCategories(int cat_id);
         List<Seller> GetSeller();
         List<Buyer> GetBuyer();
-        void DeleteCategory(Category cat_id);
-        void DeleteSubCategory(SubCategory subCat_id);
+        void DeleteCategory(int cat_id);
+        void DeleteSubCategory(int subCat_id);
+        void UpdateCategory(Category cat);
+        void UpdateSubCateory(SubCategory subcat);
+        Category GetCategoryById(int cat_id);
+        SubCategory GetSubCateoryById(int subcat_id);
 
 
     }
