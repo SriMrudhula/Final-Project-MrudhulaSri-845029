@@ -38,7 +38,7 @@ const routes: Routes = [
         {path:'Purchase-History',component:PurchaseHistoryComponent},
         {path:'Search',component:SearchComponent},
         {path:'View-Cart',component:ViewCartComponent},
-        {path:'View-Profile',component:ViewPofileComponent}
+        {path:'View-Buyer-Profile',component:ViewPofileComponent}
   ]},
   {path:'Admin',component:AdminLandingPageComponent,children:[
          {path:'Add-Category',component:AddCategoryComponent},

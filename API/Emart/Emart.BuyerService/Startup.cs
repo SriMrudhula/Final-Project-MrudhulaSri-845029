@@ -27,6 +27,15 @@ namespace Emart.BuyerService
         {
             services.AddDbContext<EmartContext>();
             services.AddTransient<IBuyerRepository, BuyerRepository>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options =>
+                 options.AllowAnyOrigin()
+                         .AllowAnyMethod()
+                         .AllowAnyHeader()
+                         );
+
+            });
             services.AddControllers();
         }
 
@@ -41,7 +50,7 @@ namespace Emart.BuyerService
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

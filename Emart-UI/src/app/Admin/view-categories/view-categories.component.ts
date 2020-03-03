@@ -59,8 +59,7 @@ CategoryById(cat_id:number)
         cName:this.cat.catName,
         cDesc:this.cat.catDesc,
       });
-   }
-    )
+   })
   }
   UpdateCategory()
     {

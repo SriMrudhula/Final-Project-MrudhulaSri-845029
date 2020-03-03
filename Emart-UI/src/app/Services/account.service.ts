@@ -17,9 +17,9 @@ export class AccountService {
   {
     return this.http.post(this.url+'SellerRegister',seller);
   }
-  // public Login(username:string,pwd:string,user:string):Observable<any>
-  // {
-  //   return this.http.get(this.url+'Login/'+username,pwd,user);
-  // }
+  public Login(username:string,pwd:string,user:string):Observable<any>
+  {
+    return this.http.get(this.url+'Login/'+username+"/"+pwd+"/"+user);
+  }
   
 }

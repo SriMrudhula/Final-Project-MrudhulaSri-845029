@@ -1,1 +1,69 @@
-<p>add-items works!</p>
+	<div  class="jumbotron jumbotron-fluid b1" >
+		<h1>Add Item</h1><br>
+	  <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+              <div class="col-6">
+                    <div class="form-group">
+                        <label>Category
+                        <select  formControlName="catName" class="form-control" (click)="GetSubCategory()" [ngClass]="{ 'is-invalid': submitted && f.catName.errors }">
+                             <option *ngFor="let item of catlist" [value]=item.catId>{{item.catName}}</option>
+                        </select>
+                        </label>
+                        <div *ngIf="submitted && f.catName.errors" class="invalid-feedback">
+                            <div *ngIf="f.catName.errors.required">Category is required</div>
+                        </div>
+                    </div> 
+                </div>
+                    <div class="col-6">
+                             <div class="form-group">
+                                <label>Subcategory
+                                <select  formControlName="subcatName" class="form-control" 
+                                [ngClass]="{ 'is-invalid': submitted && f.subcatName.errors }">
+                                     <option *ngFor="let item of subcatlist" [value]=item.subCatId>{{item.subCatName}}</option>
+                                </select>
+                                </label>
+                                <div *ngIf="submitted && f.subcatName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.subcatName.errors.required">Category is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+        <div class="row">
+            <div class="col-4">      
+		  <div class="form-group ">
+			  <label> 
+			  <input type="text" formControlName="iName" placeholder="Item Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.iName.errors }" /> 
+			  <div *ngIf="submitted && f.iName.errors" class="invalid-feedback">
+				  <div *ngIf="f.iName.errors.required">Category Name is required</div>
+			  </div> </label>
+          </div>
+         </div>
+       <div class="col-4">
+          <div class="form-group ">
+                <label> 
+                <input type="number" formControlName="price" placeholder="Price"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" /> 
+                <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                    <div *ngIf="f.price.errors.required">Category Name is required</div>
+                </div> </label>
+          </div></div>
+          <div class="col-4">
+        <div class="form-group ">
+                <label> 
+                <input type="number" formControlName="stock" placeholder="Stock Number" class="form-control" />
+                </label>
+            </div>
+        </div>
+        </div>
+            <div class="form-group a">
+            <textarea placeholder="Item Description" formControlName="iDesc" ></textarea>
+                </div>
+         <div class="form-group a">
+        <textarea placeholder="Remarks" formControlName="remarks" ></textarea>
+                    </div>
+	  <div class="text-center">
+        <button class="btn btn-primary mr-1" >Add</button>
+        <button class="btn btn-primary mr-1" (click)="onReset()">Reset</button>
+	  </div>
+	  </form>
+	</div>
+

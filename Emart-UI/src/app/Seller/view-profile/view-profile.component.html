@@ -1,1 +1,78 @@
-<p>view-profile works!</p>
+	<div  class="jumbotron jumbotron-fluid b1" >
+		<h2>Seller</h2><br>
+	  <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()">
+		  <div class="row">
+			  <div class="col">
+		  <div class=" form-group">
+			  <label>UserName
+			  <input type="text" formControlName="username" placeholder="UserName" class="form-control"  /> 
+			 </label>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="form-group">
+			  <label>Email Id
+			  <input type="text" formControlName="emailid" class="form-control" placeholder="Email Id"  />
+				 </label>
+		  </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+		  <div class="form-group">
+			  <label>Password
+			  <input type="password" formControlName="pwd" class="form-control" placeholder="Password" />
+			 
+			</label>
+		  </div>
+		</div>
+		<div class="col">
+		  <div class="form-group">
+			<label>Mobile Number
+			<input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" />
+	
+		  </label>
+  </div>
+</div>
+  </div>
+		  <div class="row">
+		  <div class=col>
+		  <div class="form-group">
+			<label>Company Name
+			<input type="text" formControlName="cmpName" class="form-control" placeholder="Company Name" />			
+		  </label>
+		</div>
+	</div>
+		<div class="col">
+		<div class="form-group">
+			<label>GSTIN
+			<input type="text" formControlName="gstin" class="form-control" placeholder="Gstin"  />
+			
+		  </label>
+		</div>
+		</div>
+		<div class="col">
+		<div class="form-group">
+			<label>Website
+			<input type="text" formControlName="website" placeholder="Website" class="form-control"  />		
+		  </label>
+      </div>
+       </div>
+	  </div>
+		<div class="form-group">
+                        <label>About Company</label>
+            <textarea placeholder="About Company" formControlName="abtCmp"></textarea>
+		</div>
+		<div class="form-group">
+            <label>Address</label>
+            <textarea placeholder="Address" formControlName="addr"></textarea>
+		</div>
+
+	  <div class="text-center">
+        <button class="btn btn-primary mr-1" id="edit" (click)="edit()" >Edit</button>
+        <button class="btn btn-primary mr-1" id="save" (click)="UpdateSeller()">save</button> 
+		
+	  </div>
+	  </form>
+	</div>
+

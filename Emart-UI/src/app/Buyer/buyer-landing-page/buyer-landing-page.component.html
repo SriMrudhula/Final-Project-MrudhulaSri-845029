@@ -1,1 +1,34 @@
-<p>buyer-landing-page works!</p>
+<div class="image">
+    <nav class="navbar navbar-expand-lg l fixed-top navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="" alt="logo" style="width:40px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/Buyer']" >Home</a>
+          </li>
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['Buy-Products']" >Buy Products</a>
+        </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['View-Buyer-Profile']" >My Profile</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['Search']" >Search</a>
+          </li>
+      </ul>
+    </div>
+    </nav>
+    <div class="sidenav">
+      <a class="nav-link" [routerLink]="['View-Cart']" >View Cart</a>
+      <a class="nav-link" [routerLink]="['Purchase-History']" >Purchase History</a>
+      <a class="nav-link" [routerLink]="['View-Buyer-Profile']" >My Profile</a>
+    </div>
+    <router-outlet></router-outlet>
+    </div>
+    
+    

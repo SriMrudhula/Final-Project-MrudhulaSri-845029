@@ -22,4 +22,10 @@ export class BlockUnblockBuyerComponent implements OnInit {
         console.log(this.list);
         })
    }
+   change() 
+    {
+        // var elem = document.getElementById("Button");
+        // if (elem.value=="Block") elem.value = "UnBlock";
+        // else elem.value = "UnBlock";
+    }
 }

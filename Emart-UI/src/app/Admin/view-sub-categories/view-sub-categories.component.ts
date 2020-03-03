@@ -16,15 +16,20 @@ export class ViewSubCategoriesComponent implements OnInit {
   subcat:SubCategory;
   adminForm:FormGroup;
 id:number;
+catname:string="";
+cat:Category;
   submitted:boolean=false;
   constructor(private builder:FormBuilder,private service:AdminService){}
 
     ngOnInit(): void {
       this.adminForm=this.builder.group({
-         catName:[''],
+        Name:[''], 
+        cName:[''],
+         scName:[''],
+         scDesc:['']
+         
         
        });
- 
       this.GetCategory();
 
     }
@@ -47,11 +52,10 @@ id:number;
    }    
    GetSubCategory()
    {
-    let catId=Number(this.adminForm.value["catName"]);
+    let catId=Number(this.adminForm.value["Name"]);
     console.log(catId);
     this.service.GetSubCategories(catId).subscribe(res=>{
       this.sublist=res;
-
     },err=>{
       console.log(err)
     })
@@ -61,23 +65,30 @@ id:number;
      
      this.service.DeleteSubcategory(subcatId).subscribe(res=>{
        console.log("record deleted");
+       alert("Record Deleted Successfully");
        this.GetSubCategory();
      })
    }   
-   CategoryById(cat_id:number)
+   SubCategoryById(subcat_id:number)
    {
-    this.service.GetCategoryById(cat_id).subscribe(res=>{
+    this.service.GetSubCategoryById(subcat_id).subscribe(res=>{
       this.subcat=res;
-      this.id=cat_id;
-      console.log(this.subcat);
+      this.service.GetCategoryById(this.subcat.catId).subscribe(res=>{
+        this.cat=res;
+        this.catname=this.cat.catName;     
+      console.log(this.subcat+"sub cat");
+      console.log(this.catname+" jfkgjm");
       this.adminForm.setValue({
-        cName:this.subcat.subCatName,
-        cDesc:this.subcat.subCatDesc,
+        cName:this.catname,
+        Name:"",
+        scName:this.subcat.subCatName,
+        scDesc:this.subcat.subCatDesc,
+      })
       });
    }
     )
   }
-  UpdateCategory()
+  UpdateSubCategory()
     {
       this.subcat=new SubCategory();
       this.subcat.catId=this.id;

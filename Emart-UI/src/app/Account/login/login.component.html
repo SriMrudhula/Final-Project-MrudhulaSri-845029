@@ -36,7 +36,7 @@
 			  <label> 
 			  <input type="text" formControlName="username" placeholder="UserName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
 			  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-				  <div *ngIf="f.username.errors.required">NAME is required</div>
+				  <div *ngIf="f.username.errors.required">Name is required</div>
 			  </div> </label>
 		  </div>
 		  <div class="form-group">
@@ -49,19 +49,15 @@
       </div>
       <div class="form-group">
         <label>
-        <select  placeholder="User" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.user.errors }">
-    <option [ngValue]="null">User</option>
-          <option value="Admin">Admin</option>
+        <select  placeholder="User" class="form-control" formControlName="user" >
+			          <option value="Admin">Admin</option>
             <option value="Seller">Seller</option>
             <option value="Buyer">Buyer</option>
         </select></label>
-        <div *ngIf="submitted && f.user.errors" class="invalid-feedback">
-            <div *ngIf="f.user.errors.required">Title is required</div>
-        </div>
     </div>
     
 	  <div class="text-center">
-		<button class="btn btn-primary mr-1" >Login</button>
+		<button class="btn btn-primary mr-1" (click)="Login()">Login</button>
 	  </div>
 	  <br>	
 		<div class="d-flex justify-content-center links">

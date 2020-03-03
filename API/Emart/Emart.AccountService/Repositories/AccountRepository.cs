@@ -19,26 +19,24 @@ namespace Emart.AccountService.Repositories
             _context.SaveChanges();
         }
 
-        public bool Login(string uname, string pwd, string user)
-        {
-            if(user=="Seller"|| user=="seller")
-            {
-                Seller s = _context.Seller.SingleOrDefault(e => e.Username == uname && e.Pwd == pwd);
-                if(s != null)
+        public Seller LoginSeller(string uname, string pwd)
+        { 
+                Seller seller = _context.Seller.SingleOrDefault(e => e.Username == uname && e.Pwd == pwd);
+                if (seller != null)
                 {
-                    return true;
+                    return seller;
                 }
-            }
-            else if(user=="Buyer" || user=="buyer")
-            {
-                Buyer s = _context.Buyer.SingleOrDefault(e => e.Username == uname && e.Pwd == pwd);
-                if (s != null)
+            return null;
+        }
+
+        public Buyer LoginBuyer(string uname, string pwd) { 
+            
+                Buyer buyer = _context.Buyer.SingleOrDefault(e => e.Username == uname && e.Pwd == pwd);
+                if (buyer != null)
                 {
-                    return true;
+                    return buyer;
                 }
-              
-            }
-            return false;
+            return null;
         }
 
         public void SellerRegister(Seller s)

@@ -4,7 +4,6 @@ export class Buyer {
     pwd:string;
     email:string;
     mobile:string;
-    createdatetime:Date;
-    static i:number=5;
+    createDateTime:Date;
 }
 

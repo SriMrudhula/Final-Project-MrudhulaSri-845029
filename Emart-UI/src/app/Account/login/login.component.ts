@@ -41,19 +41,19 @@ export class LoginComponent implements OnInit {
         console.log(JSON.stringify(this.accountForm.value));
       }
     }
-  //     Login()
-  //     {
-
-  //        let username=this.accountForm.value["username"];
-  //       let pwd=this.accountForm.value["pwd"];
-  //       let user=this.accountForm.value["user"];
-  //       console.log(username+" "+pwd+" "+user);
-  //       this.service.Login(username,pwd,user).subscribe(res=>{
-  //         console.log(res);
-  //       },err=>{
-  //         console.log(err)
-  //       })
-  //  }
+      Login()
+      {
+         let username=this.accountForm.value["username"];
+        let pwd=this.accountForm.value["pwd"];
+        let user=this.accountForm.value["user"];
+        console.log(username+" "+pwd+" "+user+"user");
+        this.service.Login(username,pwd,user).subscribe(res=>{
+          console.log(res);
+        },
+        err=>{
+          console.log(err)
+        })
+   }
     onReset()
     {
       this.submitted = false;

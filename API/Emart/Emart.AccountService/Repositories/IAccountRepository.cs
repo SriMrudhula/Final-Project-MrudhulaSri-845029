@@ -7,7 +7,8 @@ namespace Emart.AccountService.Repositories
 {
    public interface IAccountRepository
     {
-        bool Login(string uname,string pwd,string user);
+        public Seller LoginSeller(string uname, string pwd);
+        public Buyer LoginBuyer(string uname, string pwd);
         void SellerRegister(Seller s);
         void BuyerRegister(Buyer b);
         List<Buyer> GetAll();

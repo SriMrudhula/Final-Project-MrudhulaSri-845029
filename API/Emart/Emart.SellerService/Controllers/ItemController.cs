@@ -30,6 +30,33 @@ namespace Emart.SellerService.Controllers
                 return NotFound(e.Message);
             }
         }
+        [HttpGet]
+        [Route("GetCategory")]
+        public IActionResult GetCat()
+        {
+            try
+            {
+                return Ok(_repo.GetCategories());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategory/{catId}")]
+        public IActionResult GetSubCat(int catId)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCategories(catId));
+            }
+            catch (Exception e)
+            {
+
+                return NotFound(e.Message);
+            }
+        }
         [HttpPost]
         [Route("AddItem")]
         public IActionResult Add(Items item)
@@ -41,7 +68,7 @@ namespace Emart.SellerService.Controllers
             }
             catch(Exception e)
             {
-                return NotFound(e.Message);
+                return NotFound(e.InnerException.Message);
             }
         }
         [HttpDelete]
@@ -73,15 +100,55 @@ namespace Emart.SellerService.Controllers
             }
         }
         [HttpGet]
-        [Route("ViewItems/{id}")]
-        public IActionResult ViewItems(int id)
+        [Route("ViewItems/{sellerid}/{subcat_id}")]
+        public IActionResult ViewItems(int sellerid, int subcat_id)
         {
             try
             {
-                return Ok(_repo.ViewItems(id));
+                return Ok(_repo.ViewItems(sellerid,subcat_id));
             }
             catch(Exception e)
             {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetIdByName/{name}")]
+        public IActionResult GetIdByName(string name)
+        {
+            try
+            {
+                return Ok(_repo.GetIdByName(name));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetCategoryById/{cat_id}")]
+        public IActionResult GetCategoryById(int cat_id)
+        {
+            try
+            {
+                return Ok(_repo.GetCategoryById(cat_id));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategoryById/{subcatId}")]
+        public IActionResult GetSubCateoryById(int subcatId)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCategoryById(subcatId));
+            }
+            catch (Exception e)
+            {
+
                 return NotFound(e.Message);
             }
         }

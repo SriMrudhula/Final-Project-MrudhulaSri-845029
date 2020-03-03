@@ -10,8 +10,14 @@ namespace Emart.SellerService.Repositories
         void AddItem(Items item);
         void UpdateItem(Items item);
         Items GetItems(int id);
-        List<Items> ViewItems(int sid);
+        List<Items> ViewItems(int sid, int subcat_id);
+        Seller GetIdByName(string name);
         void DeleteItem(int id);
+        public List<SubCategory> GetSubCategories(int cat_id);
+        public List<Category> GetCategories();
+        Category GetCategoryById(int cat_id);
+        SubCategory GetSubCategoryById(int subcat_id);
+
 
     }
 }

@@ -1,1 +1,110 @@
-<p>view-items works!</p>
+<div class="b1 ">
+    <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-5">
+    <div class="form-group">
+        <label class="a">Category:
+        <select  formControlName="catName" (click)="GetSubCategory()">
+         <option *ngFor="let cat of list" [value]=cat.catId>{{cat.catName}}</option>
+        </select>
+    </label> &nbsp;
+    </div>
+</div>
+    <div class="col-7">
+    <div class="form-group">
+            <label class="a">SubCategory:
+            <select  formControlName="subCatName" (click)="ViewItems()">
+             <option *ngFor="let item of sublist" [value]=item.subCatId>{{item.subCatName}}</option>
+            </select>
+        </label> &nbsp;
+        </div>
+    </div>
+</div>
+    </form>
+    <div class="table">
+<div class="table-responsive">
+            <tr>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Price</th>
+                <th>Remarks</th>
+				<th></th>
+				<th></th>
+            </tr>
+            <tr *ngFor="let i of itemlist">
+              <td>{{i.itemName}}</td>
+              <td>{{i.itemDesc}}</td>
+              <td>{{i.price}}</td>
+              <td>{{i.remarks}}</td>
+              <td><button class="btn btn-primary mr-1" (click)="GetItem(i.itemId)" data-toggle="modal" data-target="#myModal">Edit</button></td>
+              <td><button class="btn btn-danger mr-1 " (click)="Delete(i.itemId)">Delete</button></td>
+            </tr>
+        </div>
+        <div class="modal fade b2" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">SubCategory</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="sellerForm" (ngSubmit)="onSubmit()">
+                    
+                    <div class="row">
+                        <div class="col">
+                    <div class="form-group ">
+                        <label> Category Name
+                        <input type="text" formControlName="catName" readonly="readonly"  placeholder="Category" class="form-control" /> 
+                         </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group ">
+                          <label> SubCategory Name
+                          <input type="text" formControlName="subCatName" readonly="readonly" placeholder="SubCategory" class="form-control" >
+                        </label>
+                      </div>
+                    </div>
+                    </div>
+<div class="row">
+    <div class="col">
+                    <div class="form-group ">
+                        <label> Item Name
+                        <input type="text" formControlName="iName" placeholder="Item Name"class="form-control" /> 
+                         </label>
+                    </div>
+                    </div>
+                    <div class="col">
+                    <div class="form-group ">
+                          <label> Price
+                          <input type="number" formControlName="price" placeholder="Price"class="form-control" >
+                        </label>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="form-group ">
+                          <label> Stock
+                          <input type="number" formControlName="stock" placeholder="Stock Number" class="form-control" >
+                         </label>
+                      </div>
+                      <div class="form-group">
+                          <label>Item Description</label>
+                              <textarea placeholder="Item Description" formControlName="iDesc"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label>Remarks
+                                  <textarea placeholder="Remarks" formControlName="remarks"></textarea></label>
+                              </div>
+                  <div class="text-center">
+                  <button class="btn btn-primary mr-1"  (click)="UpdateItem()" data-dismiss="modal">Save</button>
+                  </div>
+                  </form>
+              </div>
+              <div class="modal-footer ">
+<br><br>
+              </div>
+                    </div>
+                    </div>
+                    </div>
+    </div>
+</div>
