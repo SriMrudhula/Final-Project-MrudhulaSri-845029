@@ -13,7 +13,9 @@ sellerForm:FormGroup;
   seller:Seller;
   submitted:boolean=false;
   id:number;
-  
+  n:Boolean;
+  n1:Boolean;
+  pwd:string;
   constructor(private builder:FormBuilder,private service:SellerService){}
   
     ngOnInit(): void {
@@ -22,7 +24,6 @@ sellerForm:FormGroup;
  username:[''],
  mobile:[''],
  emailid:[''],
- pwd:['',],
  addr:[''],
  gstin :[''],
  website:[''],
@@ -30,6 +31,7 @@ sellerForm:FormGroup;
 abtCmp:[''],
       })
       this.GetSeller();
+      
     }
     onSubmit()
     {
@@ -42,17 +44,18 @@ abtCmp:[''],
     }
     GetSeller()
     {
+      this.n1=true;
       this.sellerForm.disable();
-      this.service.GetSeller(1).subscribe(res=>{
+      this.service.GetSeller(Number(localStorage.getItem('sellerId'))).subscribe(res=>{
         this.seller=res;
         this.id=this.seller.id;
+        this.pwd=this.seller.pwd;
         console.log(this.seller);
         this.sellerForm.setValue({
           id:this.id,
           username:this.seller.username,
           mobile:this.seller.mobile,
           emailid:this.seller.email,
-          pwd:this.seller.pwd,
           addr:this.seller.postalAddr,
           gstin :this.seller.gstin,
           website:this.seller.compWebsite,
@@ -65,15 +68,17 @@ abtCmp:[''],
     
     edit()
     {
+      this.n=true;
+      this.n1=false;
       this.sellerForm.enable();
     }
       UpdateSeller()
       {
 
         this.seller=new Seller();
-        this.seller.id=1;
+        this.seller.id=Number(localStorage.getItem('sellerId'));
         this.seller.username=this.sellerForm.value["username"];
-        this.seller.pwd=this.sellerForm.value["pwd"];
+        this.seller.pwd=this.pwd;
         this.seller.email=this.sellerForm.value["emailid"];
         this.seller.mobile=this.sellerForm.value["mobile"];
         this.seller.gstin=this.sellerForm.value["gstin"];
@@ -83,7 +88,9 @@ abtCmp:[''],
         this.seller.postalAddr=this.sellerForm.value["addr"]
         console.log(this.seller);
         this.service.EditProfile(this.seller).subscribe(res=>{
-          console.log('Record Updated')
+          console.log('Record Updated');
+          this.n=false;
+          this.n1=true;
           this.GetSeller();
         },err=>{
           console.log(err)

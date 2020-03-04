@@ -69,7 +69,6 @@ namespace Emart.AccountService.Controllers
                     return Ok(token);
                 }
             }
-
             catch (Exception e)
             {
                 return NotFound(e.Message);

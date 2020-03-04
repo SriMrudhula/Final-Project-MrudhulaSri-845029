@@ -1,0 +1,11 @@
+.b1{
+    display:inline-block;
+    width: 400px;
+    height: 450px;
+    padding: 50px;
+    background-color: rgba(0,0,0,0.5);
+    background-size: 400px 480px;
+    margin-left:550px;    
+    margin-top:150px;
+    position: relative;
+     } 

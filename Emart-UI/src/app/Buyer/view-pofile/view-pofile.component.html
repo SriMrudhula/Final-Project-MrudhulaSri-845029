@@ -13,19 +13,14 @@
 		  </div>
 		  <div class="form-group">
 			  <label>
-			  <input type="password" formControlName="pwd" class="form-control" placeholder="Password" />
-			</label>
-		  </div>
-		  <div class="form-group">
-			  <label>
 			  <input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" />
 			
 			</label>
 	</div>
 
 	  <div class="text-center">
-		<button class="btn btn-primary mr-1" (click)="edit()" >Edit</button>
-		<button class="btn btn-primary mr-1" (click)="UpdateBuyer()">save</button>
+		<button class="btn btn-primary mr-1" (click)="edit()" [hidden]=n >Edit</button>
+		<button class="btn btn-primary mr-1" (click)="UpdateBuyer()" [hidden]=n1>save</button>
 	  </div>
 	  </form>
 	</div>

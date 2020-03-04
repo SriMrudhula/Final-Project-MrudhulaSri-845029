@@ -11,6 +11,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Emart.SellerService.Repositories;
 using Emart.SellerService.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+
 namespace Emart.SellerService
 {
     public class Startup
@@ -37,6 +41,20 @@ namespace Emart.SellerService
                          );
 
             });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters = new TokenValidationParameters()
+                        {
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
+                            ValidIssuer = Configuration["Jwt:JwtIssuer"],
+                            ValidAudience = Configuration["Jwt:JwtIssuer"],
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:JwtKey"]))
+                        };
+                    });
             services.AddControllers();
         }
 
@@ -50,6 +68,8 @@ namespace Emart.SellerService
 
             app.UseRouting();
 
+
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>

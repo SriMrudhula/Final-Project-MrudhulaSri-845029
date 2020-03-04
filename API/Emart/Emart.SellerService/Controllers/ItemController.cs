@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Emart.SellerService.Repositories;
 using Emart.SellerService.Models;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Emart.SellerService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ItemController : ControllerBase
     {
         private readonly IItemInterface _repo;

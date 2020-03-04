@@ -95,7 +95,7 @@ namespace Emart.AccountService.Models
             modelBuilder.Entity<Items>(entity =>
             {
                 entity.HasKey(e => e.ItemId)
-                    .HasName("PK__items__52020FDD6D241E44");
+                    .HasName("PK__items__52020FDD18D90F8C");
 
                 entity.ToTable("items");
 
@@ -104,6 +104,12 @@ namespace Emart.AccountService.Models
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.CatId).HasColumnName("Cat_id");
+
+                entity.Property(e => e.Img)
+                    .IsRequired()
+                    .HasColumnName("img")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ItemDesc)
                     .HasColumnName("Item_Desc")
@@ -128,17 +134,17 @@ namespace Emart.AccountService.Models
                 entity.HasOne(d => d.Cat)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.CatId)
-                    .HasConstraintName("FK__items__Cat_id__1ED998B2");
+                    .HasConstraintName("FK__items__Cat_id__36B12243");
 
                 entity.HasOne(d => d.Seller)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.SellerId)
-                    .HasConstraintName("FK__items__Seller_id__20C1E124");
+                    .HasConstraintName("FK__items__Seller_id__38996AB5");
 
                 entity.HasOne(d => d.SubCat)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.SubCatId)
-                    .HasConstraintName("FK__items__SubCat_id__1FCDBCEB");
+                    .HasConstraintName("FK__items__SubCat_id__37A5467C");
             });
 
             modelBuilder.Entity<PurchaseHist>(entity =>
@@ -161,6 +167,11 @@ namespace Emart.AccountService.Models
 
                 entity.Property(e => e.SellerId).HasColumnName("Seller_id");
 
+                entity.Property(e => e.TransStatus)
+                    .HasColumnName("Trans_Status")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.TransType)
                     .IsRequired()
                     .HasColumnName("Trans_Type")
@@ -170,17 +181,17 @@ namespace Emart.AccountService.Models
                 entity.HasOne(d => d.Buyer)
                     .WithMany(p => p.PurchaseHist)
                     .HasForeignKey(d => d.BuyerId)
-                    .HasConstraintName("FK__PurchaseH__Buyer__239E4DCF");
+                    .HasConstraintName("FK__PurchaseH__Buyer__3B75D760");
 
                 entity.HasOne(d => d.Item)
                     .WithMany(p => p.PurchaseHist)
                     .HasForeignKey(d => d.ItemId)
-                    .HasConstraintName("FK__PurchaseH__Item___25869641");
+                    .HasConstraintName("FK__PurchaseH__Item___3D5E1FD2");
 
                 entity.HasOne(d => d.Seller)
                     .WithMany(p => p.PurchaseHist)
                     .HasForeignKey(d => d.SellerId)
-                    .HasConstraintName("FK__PurchaseH__Selle__24927208");
+                    .HasConstraintName("FK__PurchaseH__Selle__3C69FB99");
             });
 
             modelBuilder.Entity<Seller>(entity =>

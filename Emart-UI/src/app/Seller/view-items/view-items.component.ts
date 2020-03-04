@@ -77,7 +77,6 @@ subcatname:string;
       this.catId=this.item.catId;
       this.subcatId=this.item.subCatId;
       this.sid=this.item.sellerId;
-      
       console.log(this.item);
       this.service.GetSubCategoryById(this.item.subCatId).subscribe(res=>{
         this.subcat=res;
@@ -103,7 +102,7 @@ subcatname:string;
    {
      let subcat=Number(this.sellerForm.value["subCatName"]);
      console.log(subcat);
-     this.service.ViewItems(1,subcat).subscribe(res=>{
+     this.service.ViewItems(Number(localStorage.getItem('sellerId')),subcat).subscribe(res=>{
        this.itemlist=res;
        console.log(this.itemlist);
      },err=>{

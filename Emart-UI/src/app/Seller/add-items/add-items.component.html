@@ -60,6 +60,9 @@
          <div class="form-group a">
         <textarea placeholder="Remarks" formControlName="remarks" ></textarea>
                     </div>
+                    <div>
+                    <input type="file" (change)="onFileChanged($event)">
+                </div>
 	  <div class="text-center">
         <button class="btn btn-primary mr-1" >Add</button>
         <button class="btn btn-primary mr-1" (click)="onReset()">Reset</button>

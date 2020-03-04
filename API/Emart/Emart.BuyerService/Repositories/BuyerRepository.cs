@@ -51,5 +51,9 @@ namespace Emart.BuyerService.Repositories
             List<SubCategory> subCat = _context.SubCategory.Where(e=>e.CatId==cat_id).ToList();
             return subCat;
         }
+        public List<Items> ViewCart()
+        {
+            return _context.Items.ToList();
+        }
     }
 }

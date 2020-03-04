@@ -18,7 +18,8 @@ export class AddItemsComponent implements OnInit {
   catlist:Category[];
   subcatlist:SubCategory[];
   submitted:boolean=false;
-  seller:Seller
+  seller:Seller;
+  file:string;
   constructor(private builder:FormBuilder,private router: Router,private service:ItemService){}
   
     ngOnInit(): void {
@@ -68,6 +69,9 @@ export class AddItemsComponent implements OnInit {
       return this.sellerForm.controls;
   
     }
+    onFileChanged(event) {
+      this.file = event.target.files[0].name;
+    }
       Add()
       {
         this.item=new Items();
@@ -79,7 +83,8 @@ export class AddItemsComponent implements OnInit {
          this.item.subCatId=Number(this.sellerForm.value["subcatName"]);
          this.item.remarks=this.sellerForm.value["remarks"];
          this.item.itemId=Math.floor(Math.random()*1000);
-         this.item.sellerId=1;
+         this.item.sellerId=Number(localStorage.getItem('sellerId'));
+         this.item.img=this.file;
         console.log(this.item);
         this.service.AddItem(this.item).subscribe(res=>{
           console.log("record added");

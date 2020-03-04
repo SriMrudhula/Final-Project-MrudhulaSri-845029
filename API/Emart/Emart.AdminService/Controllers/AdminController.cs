@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Emart.AdminService.Models;
 using Emart.AdminService.Repositories;
+using Microsoft.AspNetCore.Authorization;
+
 namespace Emart.AdminService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AdminController : ControllerBase
     {
         private readonly IAdminRepository _repo;

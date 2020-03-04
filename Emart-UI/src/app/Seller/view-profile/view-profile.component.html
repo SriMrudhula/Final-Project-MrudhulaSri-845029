@@ -20,29 +20,22 @@
 	<div class="row">
 		<div class="col">
 		  <div class="form-group">
-			  <label>Password
-			  <input type="password" formControlName="pwd" class="form-control" placeholder="Password" />
-			 
-			</label>
-		  </div>
-		</div>
-		<div class="col">
-		  <div class="form-group">
 			<label>Mobile Number
 			<input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" />
-	
 		  </label>
   </div>
 </div>
+<div class=col>
+	<div class="form-group">
+	  <label>Company Name
+	  <input type="text" formControlName="cmpName" class="form-control" placeholder="Company Name" />			
+	</label>
+  </div>
+</div>
+
   </div>
 		  <div class="row">
-		  <div class=col>
-		  <div class="form-group">
-			<label>Company Name
-			<input type="text" formControlName="cmpName" class="form-control" placeholder="Company Name" />			
-		  </label>
-		</div>
-	</div>
+		  
 		<div class="col">
 		<div class="form-group">
 			<label>GSTIN
@@ -69,8 +62,8 @@
 		</div>
 
 	  <div class="text-center">
-        <button class="btn btn-primary mr-1" id="edit" (click)="edit()" >Edit</button>
-        <button class="btn btn-primary mr-1" id="save" (click)="UpdateSeller()">save</button> 
+        <button class="btn btn-primary mr-1" id="edit" (click)="edit()" [hidden]=n>Edit</button>
+        <button class="btn btn-primary mr-1" id="save" (click)="UpdateSeller()" [hidden]=n1>save</button> 
 		
 	  </div>
 	  </form>

@@ -8,5 +8,5 @@ itemDesc:string;
 stockNumber:number;
 remarks:string;
 sellerId:number;
-
+img:string;
 }
