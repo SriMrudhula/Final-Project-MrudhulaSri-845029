@@ -1,1 +1,30 @@
-<p>buy-products works!</p>
+<div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..\assets\Images\{{item.img}}">
+        <div class="card-body">
+          <h5 class="card-title">{{item.itemName}}</h5>
+          <h4>Price:{{item.price}}</h4>
+          <p class="card-text">Description:{{item.itemDesc}}</p>
+
+        </div>
+      </div>
+      <div class="pos">
+      <form [formGroup]="buyerForm">
+        <div class="form-group ">
+            <label> Number Of Items 
+            <input type="number" formControlName="NoI" class="form-control" /> 
+             </label>
+            </div>
+
+            <div class="form-group">
+                <label>Transaction Type
+             <select formControlName="transaction" class="form-control">
+                 <option value="Card">Card</option>
+                 <option value="Cash">Cash</option>
+                 <option value="Net Banking">Net Banking</option>
+             </select>
+            </label>
+            </div>
+             <button class="btn btn-sm btn-primary" >Buy</button>&nbsp;
+        
+</form>
+    </div>

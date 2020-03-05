@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buyer-landing-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyerLandingPageComponent implements OnInit {
 
-  constructor() { }
+  buyerForm:FormGroup;
+itemname:string;
+  constructor(private builder:FormBuilder,private route:Router) { }
 
   ngOnInit(): void {
-  }
-
+    
 }
+}
+

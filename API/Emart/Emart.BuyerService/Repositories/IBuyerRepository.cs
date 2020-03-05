@@ -15,5 +15,7 @@ namespace Emart.BuyerService.Repositories
         List<Category> GetCategories();
         List<SubCategory> GetSubCategories(int cat_id);
         List<Items> ViewCart();
+        List<Category> GetCategoryByName(string name);
+        List<SubCategory> GetSubCateoryByName(string name);
     }
 }

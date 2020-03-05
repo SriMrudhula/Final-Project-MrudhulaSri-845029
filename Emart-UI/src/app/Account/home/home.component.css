@@ -22,4 +22,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         margin-top: -40px;
+        width:100%;
+        background-attachment: fixed;
       }

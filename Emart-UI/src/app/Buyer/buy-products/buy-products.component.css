@@ -1,0 +1,44 @@
+.p{
+    margin-left:270px;   
+}
+     .card{
+        float:left;
+        margin-left:650px; 
+        margin-top:120px;   
+        background-color: rgba(0,0,0,0.5);
+
+    }
+    .pos{
+        margin-left:655px; 
+        margin-top:500px;   
+    }
+label{
+    color: white;
+}
+     .b{
+        margin-left:600px;    
+        margin-top:180px;
+        position:fixed;
+     }
+     p,h5,h4{
+         text-align: center;
+         color:white;
+     }
+     .btn{
+        margin-left: auto;
+        height:40px;
+    width:100px;
+    }
+     
+     input[type=text] {
+        width: 250px;
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height:45px;
+      }
+     
+      .search-container
+      {
+          margin-top: -20px;
+      }

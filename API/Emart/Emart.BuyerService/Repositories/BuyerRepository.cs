@@ -55,5 +55,15 @@ namespace Emart.BuyerService.Repositories
         {
             return _context.Items.ToList();
         }
+
+        public List<Category> GetCategoryByName(string name)
+        {
+            return _context.Category.Where(e => e.CatName == name).ToList();
+        }
+
+        public List<SubCategory> GetSubCateoryByName(string name)
+        {
+            return _context.SubCategory.Where(e => e.SubCatName == name).ToList();
+        }
     }
 }

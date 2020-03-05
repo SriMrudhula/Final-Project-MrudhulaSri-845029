@@ -18,10 +18,13 @@
       .dropdown:hover .dropdown-content {display: block;}
       .image{
         background-image:url("E:\Final-Project-MrudhulaSri-845029\Emart-UI\src\assets\Images\thomas.jpg"); 
-        height: 770px;
         background-repeat: no-repeat;
         background-size: cover;
+        height:200%;
         margin-top: -40px;
+        background-attachment: fixed;
+        position: absolute;
+        width:100%;
       }
       .sidenav {
         height: 100%;
@@ -47,3 +50,9 @@
         .sidenav {padding-top: 15px;}
         .sidenav a {font-size: 18px;}
       }
+      .search-container{
+        margin-left:150px;
+        margin-top:7px;  
+      }
+
+      

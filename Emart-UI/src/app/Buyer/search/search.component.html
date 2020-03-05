@@ -1,1 +1,60 @@
-<p>search works!</p>
+<div class="b">
+<div class="search-container">
+    <form [formGroup]="buyerForm" (ngSubmit)="SearchItem()">
+      <div class="form-group">
+          <input type="text" placeholder="Search.." formControlName="itemName" />
+        <button class="btn btn-sm btn-primary"><i class="fa fa-search"></i>Search</button>
+    </div>
+    </form>
+  </div>
+</div>
+<!-- <ng-template [ngIf]="load==true" [ngIfElse]="load">
+
+    <div class="b1">        
+<div *ngFor="let item of items">  
+    <h3>{{item.itemName}}</h3>
+    <img src="..\assets\Images\{{item.img}}" /><br> 
+    <h4>Price:{{item.price}}</h4>
+    <h6>Description:{{item.itemDesc}} and it belongs  to subcat of cat type..</h6>
+
+</div>
+</div>
+</ng-template> -->
+
+<!-- <div class='row' [ngSwitch]="load">
+    <div *ngSwitchCase=1>
+              
+            <div *ngFor="let item of items">  
+                <div class="b1">
+                <h3>{{item.itemName}}</h3>
+                <img src="..\assets\Images\{{item.img}}" /><br> 
+                <h4>Price:{{item.price}}</h4>
+                <h6>Description:{{item.itemDesc}} and it belongs  to subcat of cat type..</h6>
+                <div>
+            <button class="btn btn-sm btn-primary">Buy</button>&nbsp;
+            <button class="btn btn-sm btn-primary">Add to cart</button>
+        </div>
+            </div>
+            </div>
+</div>
+    <div *ngSwitchCase="2">
+    <div class="b1">
+        <h1>Search Not Found</h1>
+    </div>
+    </div>
+
+    </div> -->
+    <div class="p">
+    <div *ngFor="let item of items">  
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..\assets\Images\{{item.img}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{item.itemName}}</h5>
+          <h4>Price:{{item.price}}</h4>
+          <p class="card-text">Description:{{item.itemDesc}}</p>
+          <button class="btn btn-sm btn-primary" (click)="BuyProduct(item)">Buy</button>&nbsp;
+          <button class="btn btn-sm btn-primary" (click)="AddToCart(item)">Add to cart</button>
+        </div>
+      </div>
+      </div>
+    </div>

@@ -60,6 +60,32 @@ namespace Emart.BuyerService.Controllers
                 return NotFound(e.Message);
             }
         }
+        [HttpGet]
+        [Route("GetCategoryByName/{name}")]
+        public IActionResult GetCategoryByName(string name)
+        {
+            try
+            {
+                return Ok(_repo.GetCategoryByName(name));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategoryByName/{name}")]
+        public IActionResult GetSubCategoryByName(string name)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCateoryByName(name));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
         [HttpPost]
         [Route("BuyItem")]
         public IActionResult BuyItem(PurchaseHist item)
