@@ -26,6 +26,9 @@
         position: absolute;
         width:100%;
       }
+      .navbar-right{
+        margin-left:870px;
+              }
       .sidenav {
         height: 100%;
         width: 250px;

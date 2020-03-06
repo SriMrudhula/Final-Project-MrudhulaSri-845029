@@ -46,4 +46,8 @@ public BuyItem(purch:Purchase):Observable<any>
 {
   return this.http.post(this.url+'BuyItem',purch,Requestheaders);
 }
+public ItemSearch(id:number):Observable<any>
+{
+  return this.http.post(this.url+'ItemSearch/'+id,Requestheaders);
+}
 }

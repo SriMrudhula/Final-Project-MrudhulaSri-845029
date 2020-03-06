@@ -16,8 +16,8 @@ buyerForm:FormGroup;
 load:number=0;
 items:Items[];
 itemname:string;
-cat:Category[];
-subcat:SubCategory[];
+cat:Category;
+subcat:SubCategory;
   constructor(private builder:FormBuilder,private route:Router,private service:BuyerService) { }
 
   ngOnInit(): void {
@@ -33,20 +33,50 @@ subcat:SubCategory[];
     this.service.SearchItem(name).subscribe(res=>{
     this.items=res;
     console.log(this.items);
-    
     if((this.items).length!=0){
       this.load=1;
-      console.log("true");
+      console.log("1");
     }
+    else if(this.load!=1)
+    {
+this.service.GetCategoryByName(name).subscribe(res=>{
+  this.cat=res;
+  console.log(this.cat);
+  console.log("Category");
+  if(this.cat!=null){
+    this.load=2;
+    console.log("2");
+  }
+  else if(this.load!=2)
+  {
+    this.service.GetSubCategoryByName(name).subscribe(res=>{
+    this.subcat=res;
+    console.log(this.subcat);
+    console.log("sublkdb")
+    if(this.subcat!=null){
+      this.load=3;
+this.service.ItemSearch(this.subcat.subCatId).subscribe(res=>{
+  this.items=res;
+  console.log(this.items);
+  if((this.items).length!=0){
+    this.load=1;
+    console.log("1");
+  }  
+  else{
+    alert("Item Not Found");
+    this.load=0;
+    console.log("false");
+   }
 
+})
+    }
+  
     })
-   
-
-    // else{
-    //  alert("Item Not Found");
-    //  this.load=0;
-    //  console.log("false");
-    // }
+  }
+})
+    }
+    
+  })
   }
   BuyProduct(item:Items)
   {

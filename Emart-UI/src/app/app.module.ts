@@ -27,6 +27,7 @@ import { HomeComponent } from './Account/home/home.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ViewCategoriesComponent } from './Admin/view-categories/view-categories.component';
 import { ViewSubCategoriesComponent } from './Admin/view-sub-categories/view-sub-categories.component';
+import {FormsModule} from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { ViewSubCategoriesComponent } from './Admin/view-sub-categories/view-sub
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

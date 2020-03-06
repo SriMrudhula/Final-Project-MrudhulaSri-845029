@@ -15,9 +15,14 @@
       .color{
           color:white;
       }
+
       .navbar-right{
         margin-left:1000px;
               }
+          .bottom{
+            margin-top:500px;
+            margin-left:-15px;
+          }
       .dropdown:hover .dropdown-content {display: block;}
       .image{
         background-image:url("E:\Final-Project-MrudhulaSri-845029\Emart-UI\src\assets\Images\thomas.jpg"); 

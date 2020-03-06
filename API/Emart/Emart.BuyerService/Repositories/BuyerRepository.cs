@@ -65,5 +65,10 @@ namespace Emart.BuyerService.Repositories
         {
             return _context.SubCategory.Where(e => e.SubCatName == name).ToList();
         }
+
+        public List<Items> ItemSearch(int id)
+        {
+            return _context.Items.Where(e => e.SubCatId == id).ToList();
+        }
     }
 }

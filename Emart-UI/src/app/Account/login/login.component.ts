@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
         console.log(username+" "+pwd+" "+user+"user");
         if(user=="Admin" && username=="Admin" && pwd=="12345")
         {
+          localStorage.setItem('Admin',"admin");          
           this.route.navigateByUrl('/Admin');
         }
         else{
@@ -60,15 +61,17 @@ export class LoginComponent implements OnInit {
           this.token=res;
           if(this.token.msg=="Success" && this.token.sellerId!=0)
           {
-            this.route.navigateByUrl('/Seller');
+ 
             localStorage.setItem('sellerId',this.token.sellerId.toString());
             localStorage.setItem('token',this.token.token);
+            this.route.navigateByUrl('/Seller');
             console.log(this.token);
           }
           else if(this.token.msg=="Success" && this.token.buyerId!=0){
-            this.route.navigateByUrl('/Buyer');
+
             localStorage.setItem('buyerId',this.token.buyerId.toString());
             localStorage.setItem('token',this.token.token);
+            this.route.navigateByUrl('/Buyer');
             console.log(this.token);
           }
           else{

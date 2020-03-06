@@ -23,7 +23,9 @@
         background-size: cover;
         margin-top: -40px;
       }
-
+      .navbar-right{
+        margin-left:900px;
+              }
       .sidenav {
         height: 100%;
         width: 250px;

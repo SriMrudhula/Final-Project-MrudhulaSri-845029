@@ -1,19 +1,55 @@
 .p{
     margin-left:270px;   
 }
-     .card{
-        float:left;
-        margin-left:650px; 
-        margin-top:120px;   
-        background-color: rgba(0,0,0,0.5);
+     .c{
 
+        margin-left:250px; 
+        margin-top:-150px;   
+        height:200px;
     }
+
+        
+    img{
+width:250px;
+height:200px;
+margin-left:-30px; 
+margin-top: -20px;
+    }
+    .b1{
+        display:inline-block;
+        width: 600px;
+        height: 650px;
+        padding: 50px;
+        background-color: rgba(0,0,0,0.5);
+        background-size: 400px 480px;
+        margin-left:590px;    
+        margin-top:150px;
+        position: relative;
+         } 
     .pos{
-        margin-left:655px; 
-        margin-top:500px;   
+        margin-left:50px; 
+        margin-top:-40px;   
     }
+    .s{
+        margin-left:100px; 
+    }
+    .s1{
+        margin-left:120px; 
+    }
+    .x{
+            width:20px;
+    }
+    
 label{
-    color: white;
+font-size:20px;
+
+color:white ;
+
+}
+#noi{
+    width:60px; 
+    height:45px;
+    border-radius: 4px;
 }
      .b{
         margin-left:600px;    
@@ -24,14 +60,14 @@ label{
          text-align: center;
          color:white;
      }
-     .btn{
+     .btn1{
         margin-left: auto;
-        height:40px;
+        height:50px;
     width:100px;
     }
      
-     input[type=text] {
-        width: 250px;
+     #amt {
+        width: 150px;
         padding: 12px 20px;
         border: 1px solid #ccc;
         border-radius: 4px;

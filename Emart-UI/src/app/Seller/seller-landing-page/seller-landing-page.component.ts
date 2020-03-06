@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-landing-page',
@@ -6,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./seller-landing-page.component.css']
 })
 export class SellerLandingPageComponent implements OnInit {
-uname:string;
-  constructor() { }
+
+  constructor(private route:Router) { 
+    if(!localStorage.getItem('sellerId'))
+       this.route.navigateByUrl("/Home/Login");
+  }
 
   ngOnInit(): void {
-    this.uname=localStorage.getItem('uname');
   }
   logout()
   {

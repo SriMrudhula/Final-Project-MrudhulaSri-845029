@@ -153,6 +153,20 @@ namespace Emart.BuyerService.Controllers
                 return NotFound(e.InnerException.Message);       
             }
         }
+        [HttpGet]
+        [Route("ItemSearch/{id}")]
+        public IActionResult ItemSearch(int id)
+        {
+            try
+            {
+                return Ok(_repo.ItemSearch(id));
+            }
+            catch (Exception e)
+            {
+
+                return NotFound(e.Message);
+            }
+        }
 
 
     }

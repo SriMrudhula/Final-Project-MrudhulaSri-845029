@@ -8,13 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./buyer-landing-page.component.css']
 })
 export class BuyerLandingPageComponent implements OnInit {
-
-  buyerForm:FormGroup;
-itemname:string;
-  constructor(private builder:FormBuilder,private route:Router) { }
+  constructor(private route:Router) { 
+    if(!localStorage.getItem('buyerId'))
+       this.route.navigateByUrl("/Home/Login");
+  }
 
   ngOnInit(): void {
-    
-}
+  }
+  logout()
+  {
+    console.log("logged out");
+    localStorage.removeItem('buyerId');
+  }
 }
 

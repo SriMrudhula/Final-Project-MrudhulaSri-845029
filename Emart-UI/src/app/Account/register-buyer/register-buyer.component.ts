@@ -30,7 +30,6 @@ constructor(private builder:FormBuilder,private service:AccountService){}
   get f()
   {
     return this.accountForm.controls;
-
   }
   
   onSubmit()
