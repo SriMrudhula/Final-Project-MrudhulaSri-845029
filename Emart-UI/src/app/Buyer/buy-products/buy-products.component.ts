@@ -3,6 +3,7 @@ import { Items } from 'src/app/Models/items';
 import { Purchase } from 'src/app/Models/purchase';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buy-products',
@@ -23,7 +24,7 @@ cvv:number;
 cardno:number;
 n:boolean=true;
 submitted:boolean=false;
-  constructor(private service:BuyerService,private builder:FormBuilder) { 
+  constructor(private service:BuyerService,private builder:FormBuilder,private route:Router) { 
     this.item=JSON.parse(localStorage.getItem('item'));
     this.noi=1;
     this.price=this.item.price;
@@ -92,6 +93,7 @@ console.log(this.purch);
         this.service.BuyItem(this.purch).subscribe(res=>{
           console.log("Purchased Successfully");
           alert("Purchased Successfully");
+          this.route.navigateByUrl("/Buyer/Search");
         })
         }else{
           alert("Payment Unsuccessfull....plz Enter All Details... ");

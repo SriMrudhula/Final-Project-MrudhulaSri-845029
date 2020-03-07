@@ -1,6 +1,15 @@
 
-<div class="b1">
-<p>view-cart works!</p>
-<button (click)="GetItems()">click</button>
-<img [src]=img />
-</div>
+<div class="p">
+    <div *ngFor="let cart of cartlist">  
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..\assets\Images\{{cart.img}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{cart.itemName}}</h5>
+          <h4>Price:{{cart.price}}</h4>
+          <p class="card-text">Description:{{cart.itemDesc}}</p>
+          <button class="btn btn-sm btn-primary" (click)="BuyProduct(cart.itemId)">Buy</button>&nbsp;
+          <button class="btn btn-sm btn-primary" (click)="RemoveFromCart(cart.cartId)">Remove</button>
+        </div>
+      </div>
+      </div>
+    </div>

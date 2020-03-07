@@ -4,11 +4,13 @@
 		  <div class="form-group ">
 			  <label> 
 			  <input type="text" formControlName="cName" placeholder="Category Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cName.errors }" /> 
+			  <div *ngIf="load==true">
+				<p>Already exists</p>
+			</div>
 			  <div *ngIf="submitted && f.cName.errors" class="invalid-feedback">
 				  <div *ngIf="f.cName.errors.required">Category Name is required</div>
 			  </div> </label>
 		  </div>
-
           <div class="form-group">
             <textarea placeholder="Category Desc" formControlName="cDesc"></textarea>
 		</div>

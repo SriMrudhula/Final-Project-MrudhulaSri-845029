@@ -64,5 +64,12 @@ public UpdateSubCategory(subcat:SubCategory):Observable<any>
 {
   return this.http.put(this.url+'UpdateSubCategory',subcat,Requestheaders);
 }
-
+public GetSubCategoryByName(item:string):Observable<any>
+  {
+    return this.http.get(this.url+'GetSubCategoryByName/'+item,Requestheaders);
+  }
+  public GetCategoryByName(item:string):Observable<any>
+  {
+    return this.http.get(this.url+'GetCategoryByName/'+item,Requestheaders);
+  }
 }

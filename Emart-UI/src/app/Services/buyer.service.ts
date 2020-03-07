@@ -5,6 +5,7 @@ import { Buyer } from '../Models/buyer';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Purchase } from '../Models/purchase';
+import { Cart } from '../Models/cart';
 const Requestheaders={headers:new HttpHeaders(
   {
     'Content-Type':'application/json',
@@ -26,28 +27,32 @@ export class BuyerService {
   {
     return this.http.get(this.url+'GetProfile/'+bid,Requestheaders);
   } 
-  public ViewCart():Observable<any>
-  {
-    return this.http.get(this.url+'ViewCart',Requestheaders);
-  }
   public SearchItem(item:string):Observable<any>
   {
     return this.http.get(this.url+'SearchItems/'+item,Requestheaders);
-  }
-  public GetSubCategoryByName(item:string):Observable<any>
-  {
-    return this.http.get(this.url+'GetSubCategoryByName/'+item,Requestheaders);
-  }
-  public GetCategoryByName(item:string):Observable<any>
-  {
-    return this.http.get(this.url+'GetCategoryByName/'+item,Requestheaders);
   }
 public BuyItem(purch:Purchase):Observable<any>
 {
   return this.http.post(this.url+'BuyItem',purch,Requestheaders);
 }
-public ItemSearch(id:number):Observable<any>
+public AddToCart(cart:Cart):Observable<any>
 {
-  return this.http.post(this.url+'ItemSearch/'+id,Requestheaders);
+  return this.http.post(this.url+'AddToCart',cart,Requestheaders);
+}
+public ViewCart(buyerId:number):Observable<any>
+{
+  return this.http.get(this.url+'ViewCart/'+buyerId,Requestheaders);
+}
+public RemoveFromCart(cartid:number):Observable<any>
+{
+  return this.http.delete(this.url+'RemoveFromCart/'+cartid,Requestheaders);
+}
+public GetItem(itemid:number):Observable<any>
+{
+  return this.http.get(this.url+'GetItem/'+itemid,Requestheaders);
+}
+public PurchaseHistory(buyerid:number):Observable<any>
+{
+  return this.http.get(this.url+'PurchaseHistory/'+buyerid,Requestheaders);
 }
 }

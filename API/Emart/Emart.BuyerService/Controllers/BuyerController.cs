@@ -60,32 +60,7 @@ namespace Emart.BuyerService.Controllers
                 return NotFound(e.Message);
             }
         }
-        [HttpGet]
-        [Route("GetCategoryByName/{name}")]
-        public IActionResult GetCategoryByName(string name)
-        {
-            try
-            {
-                return Ok(_repo.GetCategoryByName(name));
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.Message);
-            }
-        }
-        [HttpGet]
-        [Route("GetSubCategoryByName/{name}")]
-        public IActionResult GetSubCategoryByName(string name)
-        {
-            try
-            {
-                return Ok(_repo.GetSubCateoryByName(name));
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.Message);
-            }
-        }
+        
         [HttpPost]
         [Route("BuyItem")]
         public IActionResult BuyItem(PurchaseHist item)
@@ -114,19 +89,6 @@ namespace Emart.BuyerService.Controllers
             }
         }
         [HttpGet]
-        [Route("ViewCart")]
-        public IActionResult ViewCart()
-        {
-            try
-            {
-                return Ok(_repo.ViewCart());
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.InnerException.Message);
-            }
-        }
-        [HttpGet]
         [Route("GetSubCategory/{catId}")]
         public IActionResult GetSubCat(int catId)
         {
@@ -141,8 +103,8 @@ namespace Emart.BuyerService.Controllers
             }
         }
         [HttpGet]
-        [Route("TransactionHistory/{buyer_id}")]
-        public IActionResult PurchHist(int buyer_id)
+        [Route("PurchaseHistory/{buyer_id}")]
+        public IActionResult PurchaseHistory(int buyer_id)
         {
             try
             {
@@ -150,16 +112,17 @@ namespace Emart.BuyerService.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.InnerException.Message);       
+                return NotFound(e.InnerException.Message);
             }
         }
-        [HttpGet]
-        [Route("ItemSearch/{id}")]
-        public IActionResult ItemSearch(int id)
+        [HttpPost]
+        [Route("AddToCart")]
+        public IActionResult AddToCart(Cart cart)
         {
             try
             {
-                return Ok(_repo.ItemSearch(id));
+                _repo.AddToCart(cart);
+                return Ok();
             }
             catch (Exception e)
             {
@@ -167,7 +130,47 @@ namespace Emart.BuyerService.Controllers
                 return NotFound(e.Message);
             }
         }
+        [HttpGet]
+        [Route("ViewCart/{buyerId}")]
+        public IActionResult ViewCart(int buyerId)
+        {
+            try
+            {
+                return Ok(_repo.ViewCart(buyerId));
+            }
+            catch (Exception e)
+            {
 
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("RemoveFromCart/{cartid}")]
+        public IActionResult RemoveFromCart(int cartid)
+        {
+            try
+            {
+                _repo.RemoveFromCart(cartid);
+                return Ok();
+            }
+            catch (Exception e)
+            {
 
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetItem/{id}")]
+        public IActionResult GetItem(int id)
+        {
+            try
+            {
+                return Ok(_repo.GetItem(id));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
     }
 }

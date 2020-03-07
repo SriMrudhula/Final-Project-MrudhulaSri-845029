@@ -19,7 +19,8 @@ namespace Emart.AdminService.Repositories
         void UpdateSubCateory(SubCategory subcat);
         Category GetCategoryById(int cat_id);
         SubCategory GetSubCateoryById(int subcat_id);
-
+        Category GetCategoryByName(string name);
+        SubCategory GetSubCateoryByName(string name);
 
     }
 }

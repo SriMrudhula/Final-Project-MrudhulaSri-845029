@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
           this.token=res;
           if(this.token.msg=="Success" && this.token.sellerId!=0)
           {
- 
             localStorage.setItem('sellerId',this.token.sellerId.toString());
             localStorage.setItem('token',this.token.token);
             this.route.navigateByUrl('/Seller');

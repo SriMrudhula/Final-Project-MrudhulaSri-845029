@@ -5,6 +5,7 @@ import { Items } from 'src/app/Models/items';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/Models/category';
 import { SubCategory } from 'src/app/Models/sub-category';
+import { Cart } from 'src/app/Models/cart';
 
 @Component({
   selector: 'app-search',
@@ -13,11 +14,13 @@ import { SubCategory } from 'src/app/Models/sub-category';
 })
 export class SearchComponent implements OnInit {
 buyerForm:FormGroup;
-load:number=0;
+load:number;
 items:Items[];
 itemname:string;
 cat:Category;
 subcat:SubCategory;
+cart:Cart;
+cart1:Cart[];
   constructor(private builder:FormBuilder,private route:Router,private service:BuyerService) { }
 
   ngOnInit(): void {
@@ -36,32 +39,7 @@ subcat:SubCategory;
     if((this.items).length!=0){
       this.load=1;
       console.log("1");
-    }
-    else if(this.load!=1)
-    {
-this.service.GetCategoryByName(name).subscribe(res=>{
-  this.cat=res;
-  console.log(this.cat);
-  console.log("Category");
-  if(this.cat!=null){
-    this.load=2;
-    console.log("2");
-  }
-  else if(this.load!=2)
-  {
-    this.service.GetSubCategoryByName(name).subscribe(res=>{
-    this.subcat=res;
-    console.log(this.subcat);
-    console.log("sublkdb")
-    if(this.subcat!=null){
-      this.load=3;
-this.service.ItemSearch(this.subcat.subCatId).subscribe(res=>{
-  this.items=res;
-  console.log(this.items);
-  if((this.items).length!=0){
-    this.load=1;
-    console.log("1");
-  }  
+    }  
   else{
     alert("Item Not Found");
     this.load=0;
@@ -69,23 +47,48 @@ this.service.ItemSearch(this.subcat.subCatId).subscribe(res=>{
    }
 
 })
-    }
-  
-    })
   }
-})
-    }
-    
-  })
-  }
+
   BuyProduct(item:Items)
   {
     localStorage.setItem('item',JSON.stringify(item));
-this.route.navigateByUrl("/Buyer/Buy-Product");
+    this.route.navigateByUrl("/Buyer/Buy-Product");
   }
 AddToCart(item:Items)
 {
-
+  let f=0;     
+         this.cart=new Cart();
+       this.cart.cartid=Math.floor(Math.random()*1000);
+       this.cart.itemName=item.itemName;
+       this.cart.itemDesc=item.itemDesc;
+       this.cart.price=item.price;
+       this.cart.img=item.img;
+       this.cart.buyerId=Number(localStorage.getItem('buyerId'));
+       this.cart.itemId=item.itemId;
+       this.service.ViewCart(this.cart.buyerId).subscribe(res=>{
+         this.cart1=res;
+         console.log("hello this is view cart")
+         console.log(this.cart1);
+          for(let i=0;i<this.cart1.length;i++){
+            console.log(this.cart1[i].itemId+" "+this.cart.itemId)
+            if(this.cart1[i].itemId==this.cart.itemId)
+            {
+              f=1;
+              break;
+            }
+            else
+            f=0;
+          } 
+      
+       if(f==0){
+       this.service.AddToCart(this.cart).subscribe(res=>{
+         console.log("Added Successfully");
+         alert("Item Add Successfully");
+       })}
+       else{
+         alert("Already Added to cart")
+       }
+      })
 }
 
 }

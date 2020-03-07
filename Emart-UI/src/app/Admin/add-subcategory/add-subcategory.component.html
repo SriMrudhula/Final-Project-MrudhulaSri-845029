@@ -17,6 +17,9 @@
       <div class="form-group ">
           <label> 
           <input type="text" formControlName="subCatName" placeholder="Subcategory Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subCatName.errors }" /> 
+          <div *ngIf="load==true">
+            <p>Already exists</p>
+          </div>
           <div *ngIf="submitted && f.subCatName.errors" class="invalid-feedback">
               <div *ngIf="f.subCatName.errors.required">Category Name is required</div>
           </div> </label>

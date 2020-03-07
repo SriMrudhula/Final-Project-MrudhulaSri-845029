@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class AddCategoryComponent implements OnInit {
   adminForm:FormGroup;
   cat:Category;
+  cat1:Category;
+  load:boolean=false;
   submitted:boolean=false;
   constructor(private builder:FormBuilder,private service:AdminService,private router: Router){}
   
@@ -48,12 +50,24 @@ export class AddCategoryComponent implements OnInit {
          this.cat.catName=this.adminForm.value["cName"];
          this.cat.catDesc=this.adminForm.value["cDesc"];
         console.log(this.cat);
+        this.service.GetCategoryByName(this.cat.catName).subscribe(res=>{
+          this.cat1=res;
+          console.log(this.cat1);
+          if(!this.cat1)
+        {
+          this.load=false;
         this.service.AddCategories(this.cat).subscribe(res=>{
           console.log("record added");
           this.router.navigateByUrl('/Admin/View-Category');
         },err=>{
           console.log(err)
         })
+      }
+      else{
+        this.load=true;
+      }
+      })
+
    }
     onReset()
     {

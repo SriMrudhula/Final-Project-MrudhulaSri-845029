@@ -7,6 +7,7 @@ namespace Emart.AccountService.Models
     {
         public Items()
         {
+            Cart = new HashSet<Cart>();
             PurchaseHist = new HashSet<PurchaseHist>();
         }
 
@@ -24,6 +25,7 @@ namespace Emart.AccountService.Models
         public virtual Category Cat { get; set; }
         public virtual Seller Seller { get; set; }
         public virtual SubCategory SubCat { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<PurchaseHist> PurchaseHist { get; set; }
     }
 }

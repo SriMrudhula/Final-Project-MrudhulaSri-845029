@@ -60,8 +60,17 @@ namespace Emart.AdminService.Repositories
                 _context.SaveChanges();
 
             }
+        public Category GetCategoryByName(string name)
+        {
+            return _context.Category.SingleOrDefault(e => e.CatName == name);
+        }
 
-            void IAdminRepository.UpdateSubCateory(SubCategory subcat)
+        public SubCategory GetSubCateoryByName(string name)
+        {
+            return _context.SubCategory.SingleOrDefault(e => e.SubCatName == name);
+        }
+
+        void IAdminRepository.UpdateSubCateory(SubCategory subcat)
         {
             _context.SubCategory.Update(subcat);
             _context.SaveChanges();

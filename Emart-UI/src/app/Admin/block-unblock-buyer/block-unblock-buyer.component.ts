@@ -9,7 +9,8 @@ import { Buyer } from 'src/app/Models/buyer';
 })
 export class BlockUnblockBuyerComponent implements OnInit {
   list:Buyer[];
-
+  n:Boolean;
+  n1:Boolean;
   constructor(private service:AdminService){}
 
     ngOnInit(): void {
@@ -17,6 +18,7 @@ export class BlockUnblockBuyerComponent implements OnInit {
     }
     Get()
     {
+      this.n1=true;
       this.service.GetBuyer().subscribe(res=>{
         this.list=res;
         console.log(this.list);
@@ -24,6 +26,8 @@ export class BlockUnblockBuyerComponent implements OnInit {
    }
    change() 
     {
+      this.n=true;
+      this.n1=false;
         // var elem = document.getElementById("Button");
         // if (elem.value=="Block") elem.value = "UnBlock";
         // else elem.value = "UnBlock";

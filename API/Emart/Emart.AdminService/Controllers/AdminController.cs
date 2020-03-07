@@ -49,6 +49,32 @@ namespace Emart.AdminService.Controllers
             }
         }
         [HttpGet]
+        [Route("GetCategoryByName/{name}")]
+        public IActionResult GetCategoryByName(string name)
+        {
+            try
+            {
+                return Ok(_repo.GetCategoryByName(name));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetSubCategoryByName/{name}")]
+        public IActionResult GetSubCategoryByName(string name)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCateoryByName(name));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
         [Route("GetCategory")]
         public IActionResult GetCat()
         {

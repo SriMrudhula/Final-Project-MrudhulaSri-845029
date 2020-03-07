@@ -15,7 +15,9 @@ export class AddSubcategoryComponent implements OnInit {
   adminForm:FormGroup;
   subCat:SubCategory;
   list:Category[];
+  subCat1:SubCategory;
   submitted:boolean=false;
+  load:boolean=false;
   constructor(private builder:FormBuilder,private service:AdminService,private router:Router){}
   
     ngOnInit(): void {
@@ -58,12 +60,23 @@ export class AddSubcategoryComponent implements OnInit {
         this.subCat.gst=this.adminForm.value["gst"];
         this.subCat.catId=Number(this.adminForm.value["catName"]);
         console.log(this.subCat);
-        this.service.AddSubCategories(this.subCat).subscribe(res=>{
-          console.log("record added");
-          this.router.navigateByUrl('/Admin/View-Subcategory');
-        },err=>{
-          console.log(err)
-        })
+        this.service.GetSubCategoryByName(this.subCat.subCatName).subscribe(res=>{
+          this.subCat1=res;
+          console.log(this.subCat1);
+          if(!this.subCat1)
+        {
+          this.load=false;
+          this.service.AddSubCategories(this.subCat).subscribe(res=>{
+            console.log("record added");
+            this.router.navigateByUrl('/Admin/View-Subcategory');
+          },err=>{
+            console.log(err)
+          })
+      }
+      else{
+        this.load=true;
+      }
+      })
    }
     onReset()
     {

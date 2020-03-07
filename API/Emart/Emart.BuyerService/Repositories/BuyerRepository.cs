@@ -29,16 +29,33 @@ namespace Emart.BuyerService.Repositories
         {
             return _context.Buyer.Find(bid);
         }
+        public Category GetCategoryByName(string name)
+        {
+            return _context.Category.SingleOrDefault(e => e.CatName == name);
+        }
+
+        public SubCategory GetSubCateoryByName(string name)
+        {
+            return _context.SubCategory.SingleOrDefault(e => e.SubCatName == name);
+        }
 
         public List<Items> SearchItem(string name)
         {
+            Category cat = GetCategoryByName(name);
+            SubCategory subcat = GetSubCateoryByName(name);
             List<Items> item = _context.Items.Where(e => e.ItemName == name).ToList();
+            List<Items> item1 = _context.Items.Where(e => e.CatId == cat.CatId).ToList();
+            List<Items> item2 = _context.Items.Where(e => e.SubCatId == subcat.CatId).ToList();
+            if (item.Count!=0)
                 return item;
+            else if (item1.Count!=0)
+                return item1;
+            else
+                return item2;
         }
-
         public List<PurchaseHist> PurchaseHistory(int bid)
         {
-            List<PurchaseHist> item = _context.PurchaseHist.Where(e => e.Id == bid).ToList();
+            List<PurchaseHist> item = _context.PurchaseHist.Where(e => e.BuyerId == bid).ToList();
             return item;
         }
         public List<Category> GetCategories()
@@ -51,24 +68,26 @@ namespace Emart.BuyerService.Repositories
             List<SubCategory> subCat = _context.SubCategory.Where(e=>e.CatId==cat_id).ToList();
             return subCat;
         }
-        public List<Items> ViewCart()
+        public void AddToCart(Cart cart)
         {
-            return _context.Items.ToList();
+            _context.Cart.Add(cart);
+            _context.SaveChanges();
         }
 
-        public List<Category> GetCategoryByName(string name)
+        public List<Cart> ViewCart(int buyerId)
         {
-            return _context.Category.Where(e => e.CatName == name).ToList();
+            return _context.Cart.Where(e => e.BuyerId == buyerId).ToList();
         }
 
-        public List<SubCategory> GetSubCateoryByName(string name)
+        public void RemoveFromCart(int cartid)
         {
-            return _context.SubCategory.Where(e => e.SubCatName == name).ToList();
+            Cart cart = _context.Cart.Find(cartid);
+            _context.Remove(cart);
+            _context.SaveChanges();
         }
-
-        public List<Items> ItemSearch(int id)
+        public Items GetItem(int id)
         {
-            return _context.Items.Where(e => e.SubCatId == id).ToList();
+            return _context.Items.Find(id);
         }
     }
 }

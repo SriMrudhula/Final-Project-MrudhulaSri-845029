@@ -44,6 +44,7 @@
     </div>
 
     </div> -->
+    <div *ngIf="load==1;else display">
     <div class="p">
     <div *ngFor="let item of items">  
     <div class="card" style="width: 18rem;">
@@ -58,3 +59,10 @@
       </div>
       </div>
     </div>
+  </div>
+  <ng-template #display>
+    <div class="nf">
+           Item Not Found
+    </div>
+  </ng-template>
+  
