@@ -50,17 +50,12 @@ namespace Emart.SellerService.Repositories
             List<Items> items = _context.Items.Where(e => e.SellerId == sid && e.SubCatId==subcat_id).ToList();
             return items;
         }
-
-        Seller IItemInterface.GetIdByName(string name)
-        {
-            return _context.Seller.SingleOrDefault(e => e.Username == name);
-        }
-        Category IItemInterface.GetCategoryById(int cat_id)
+        public Category GetCategoryById(int cat_id)
         {
             return _context.Category.Find(cat_id);
         }
 
-        SubCategory IItemInterface.GetSubCategoryById(int subcat_id)
+        public SubCategory GetSubCategoryById(int subcat_id)
         {
             return _context.SubCategory.Find(subcat_id);
         }

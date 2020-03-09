@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+load:boolean;
   accountForm:FormGroup;
   submitted:boolean=false;
   token:Token;
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
             console.log(this.token);
           }
           else{
-            alert("Invaild User");
+this.load=true;
           }
         },
         err=>{

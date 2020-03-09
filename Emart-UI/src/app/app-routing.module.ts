@@ -53,7 +53,9 @@ const routes: Routes = [
   {path:'Login',component:LoginComponent},
   {path:'Register-Seller',component:RegisterSellerComponent},
   {path:'Register-Buyer',component:RegisterBuyerComponent}
-]}];
+
+]},
+{path:'',redirectTo:'/Home/Login',pathMatch:"full"}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

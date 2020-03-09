@@ -11,6 +11,6 @@ namespace Emart.AccountService.Repositories
         public Buyer LoginBuyer(string uname, string pwd);
         void SellerRegister(Seller s);
         void BuyerRegister(Buyer b);
-        List<Buyer> GetAll();
+    
     }
 }

@@ -14,9 +14,10 @@ namespace Emart.BuyerService.Repositories
         List<PurchaseHist> PurchaseHistory(int bid);
         List<Category> GetCategories();
         List<SubCategory> GetSubCategories(int cat_id);
-        
-         Category GetCategoryByName(string name);
+        Category GetCategoryByName(string name);
         SubCategory GetSubCateoryByName(string name);
+        
+
         void AddToCart(Cart cart);
         List<Cart> ViewCart(int buyerId);
         void RemoveFromCart(int cartid);

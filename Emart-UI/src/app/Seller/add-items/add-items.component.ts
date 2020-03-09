@@ -93,16 +93,7 @@ export class AddItemsComponent implements OnInit {
           console.log(err)
         })
    }
-   GetIdByName(name:string):any
-   { 
-    this.service.GetIdByName(name).subscribe(res=>{
-this.seller=res;
-      console.log(this.seller.id);
-return this.seller.id;
-    },err=>{
-      return err;
-    })   
-   }
+
     onReset()
     {
       this.submitted = false;

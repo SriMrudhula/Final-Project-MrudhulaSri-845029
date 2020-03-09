@@ -43,15 +43,17 @@ namespace Emart.BuyerService.Repositories
         {
             Category cat = GetCategoryByName(name);
             SubCategory subcat = GetSubCateoryByName(name);
-            List<Items> item = _context.Items.Where(e => e.ItemName == name).ToList();
-            List<Items> item1 = _context.Items.Where(e => e.CatId == cat.CatId).ToList();
-            List<Items> item2 = _context.Items.Where(e => e.SubCatId == subcat.CatId).ToList();
-            if (item.Count!=0)
-                return item;
-            else if (item1.Count!=0)
-                return item1;
+            if (cat != null)
+            {
+                List<Items> items = _context.Items.Where(e => e.CatId == cat.CatId).ToList();
+                return items;
+            }
+            else if (subcat != null)
+                return _context.Items.Where(e => e.SubCatId == subcat.CatId).ToList();
             else
-                return item2;
+                return _context.Items.Where(e => e.ItemName == name).ToList();
+
+
         }
         public List<PurchaseHist> PurchaseHistory(int bid)
         {

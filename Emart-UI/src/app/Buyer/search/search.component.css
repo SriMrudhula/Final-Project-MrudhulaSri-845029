@@ -1,6 +1,11 @@
 .p{
     margin-left:270px;   
 }
+
+.el{
+    margin-left:270px;   
+    margin-top:300px;
+}
      .card{
         float:left;
         margin-left:5px; 
@@ -14,7 +19,7 @@
         margin-top:180px;
         position:fixed;
      }
-     p,h5,h4{
+     p,h5,h4,h1{
          text-align: center;
          color:white;
      }

@@ -12,7 +12,7 @@ namespace Emart.BuyerService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+   
     public class BuyerController : ControllerBase
     {
         private readonly IBuyerRepository _repo;
@@ -49,15 +49,16 @@ namespace Emart.BuyerService.Controllers
         }
         [HttpGet]
         [Route("SearchItems/{name}")]
-        public IActionResult Search(String name)
+        public List<Items> Search(String name)
         {
             try
             {
-                return Ok(_repo.SearchItem(name));
+                return _repo.SearchItem(name);
             }
             catch (Exception e)
             {
-                return NotFound(e.Message);
+                //return NotFound(e.Message);
+                return null;
             }
         }
         

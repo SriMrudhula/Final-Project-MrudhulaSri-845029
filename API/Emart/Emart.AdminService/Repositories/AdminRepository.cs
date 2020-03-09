@@ -54,7 +54,7 @@ namespace Emart.AdminService.Repositories
             _context.Remove(subCat);
             _context.SaveChanges();
         }
-        void IAdminRepository.UpdateCategory(Category cat)
+        public void UpdateCategory(Category cat)
         {
                 _context.Category.Update(cat);
                 _context.SaveChanges();
@@ -70,18 +70,18 @@ namespace Emart.AdminService.Repositories
             return _context.SubCategory.SingleOrDefault(e => e.SubCatName == name);
         }
 
-        void IAdminRepository.UpdateSubCateory(SubCategory subcat)
+        public void UpdateSubCateory(SubCategory subcat)
         {
             _context.SubCategory.Update(subcat);
             _context.SaveChanges();
         }
 
-        Category IAdminRepository.GetCategoryById(int cat_id)
+        public Category GetCategoryById(int cat_id)
         {
             return _context.Category.Find(cat_id);
         }
 
-        SubCategory IAdminRepository.GetSubCateoryById(int subcat_id)
+        public SubCategory GetSubCateoryById(int subcat_id)
         {
             return _context.SubCategory.Find(subcat_id);
         }

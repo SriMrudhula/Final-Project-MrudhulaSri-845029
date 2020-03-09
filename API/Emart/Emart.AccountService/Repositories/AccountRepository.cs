@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Emart.AccountService.Repositories
 {
+
     public class AccountRepository : IAccountRepository
     {
         private readonly EmartContext _context;
@@ -44,9 +45,6 @@ namespace Emart.AccountService.Repositories
             _context.Seller.Add(s);
             _context.SaveChanges();
         }
-        public List<Buyer> GetAll()
-        {
-            return _context.Buyer.ToList();
-        }
+
     }
 }

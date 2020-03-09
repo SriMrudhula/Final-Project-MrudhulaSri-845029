@@ -116,19 +116,6 @@ namespace Emart.SellerService.Controllers
             }
         }
         [HttpGet]
-        [Route("GetIdByName/{name}")]
-        public IActionResult GetIdByName(string name)
-        {
-            try
-            {
-                return Ok(_repo.GetIdByName(name));
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.Message);
-            }
-        }
-        [HttpGet]
         [Route("GetCategoryById/{cat_id}")]
         public IActionResult GetCategoryById(int cat_id)
         {

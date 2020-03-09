@@ -127,4 +127,7 @@ E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netco
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.BuyerService\obj\Debug\netcoreapp3.1\Emart.BuyerService.MvcApplicationPartsAssemblyInfo.cache

@@ -12,7 +12,7 @@ namespace Emart.AdminService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    
     public class AdminController : ControllerBase
     {
         private readonly IAdminRepository _repo;

@@ -52,6 +52,7 @@ constructor(private builder:FormBuilder,private service:AccountService){}
       this.buyer.mobile=this.accountForm.value["mobile"];
       this.buyer.createDateTime=new Date();
       console.log(this.buyer);
+      
       this.service.BuyerRegister(this.buyer).subscribe(res=>{
         console.log('Record Added')
       },err=>{

@@ -11,7 +11,11 @@ export class BlockUnblockBuyerComponent implements OnInit {
   list:Buyer[];
   n:Boolean;
   n1:Boolean;
-  constructor(private service:AdminService){}
+  x:string;
+  
+  constructor(private service:AdminService){
+
+  }
 
     ngOnInit(): void {
       this.Get();
@@ -28,6 +32,7 @@ export class BlockUnblockBuyerComponent implements OnInit {
     {
       this.n=true;
       this.n1=false;
+      document.getElementById("Button").innerHTML = "Unblock";
         // var elem = document.getElementById("Button");
         // if (elem.value=="Block") elem.value = "UnBlock";
         // else elem.value = "UnBlock";

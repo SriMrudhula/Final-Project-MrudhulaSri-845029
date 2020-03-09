@@ -74,21 +74,6 @@ namespace Emart.AccountService.Controllers
                 return NotFound(e.Message);
             }
         }
-        [HttpGet]
-        [Route("GetBuyer")]
-        public IActionResult Get()
-        {
-            try
-            {
-
-                return Ok(_repo.GetAll());
-
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.InnerException.Message);
-            }
-        }
         [HttpPost]
         [Route("SellerRegister")]
         public IActionResult SellerRegister(Seller seller)
