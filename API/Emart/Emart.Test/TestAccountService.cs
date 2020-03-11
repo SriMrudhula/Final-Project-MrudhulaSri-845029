@@ -6,7 +6,7 @@ using Emart.AccountService.Models;
 using Emart.AccountService.Repositories;
 namespace Emart.Test
 {
-    //[TestFixture]
+    [TestFixture]
     public class TestAccountService
     {
         AccountRepository _repo;

@@ -14,7 +14,7 @@ import { Cart } from 'src/app/Models/cart';
 })
 export class SearchComponent implements OnInit {
 buyerForm:FormGroup;
-load:boolean;
+load:number;
 items:Items[];
 itemname:string;
 cat:Category;
@@ -37,12 +37,12 @@ cart1:Cart[];
     this.items=res;
     console.log(this.items);
     if((this.items).length!=0){
-      this.load=true;
+      this.load=1;
       console.log("1");
     }  
   else{
-    // alert("Item Not Found");
-    this.load=false;
+    alert("Item Not Found");
+    this.load=2;
     console.log("false");
    }
 

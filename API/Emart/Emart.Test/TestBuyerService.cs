@@ -70,13 +70,13 @@ namespace Emart.Test
                 TransType ="card"
             });
             var result = _repo.PurchaseHistory(1);
-            Assert.GreaterOrEqual(result.Count, 14);
+            Assert.GreaterOrEqual(result.Count,2);
         }
         [Test]
         public void TestPurchaseHistory()
         {
             var result = _repo.PurchaseHistory(1);
-            Assert.GreaterOrEqual(result.Count, 14);
+            Assert.GreaterOrEqual(result.Count, 2);
         }
         [Test]
         public void TestSearch()
@@ -104,20 +104,20 @@ namespace Emart.Test
         ItemId= 514,
             });
             var result = _repo.ViewCart(1);
-            Assert.GreaterOrEqual(result.Count, 3);
+            Assert.GreaterOrEqual(result.Count,1);
         }
         [Test]
         public void TestViewCart()
         {
             var result = _repo.ViewCart(1);
-            Assert.GreaterOrEqual(result.Count, 3);
+            Assert.GreaterOrEqual(result.Count, 1);
         }
         [Test]
         public void TestRemoveFromCart()
         {
             _repo.RemoveFromCart(405);
             var result = _repo.ViewCart(1);
-            Assert.AreEqual(result.Count, 2);
+            Assert.AreEqual(0,result.Count);
         }
     }
 

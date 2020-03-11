@@ -31,7 +31,11 @@
     .nf{
         margin-left: 500px;
     }
-     
+     .p1{
+          margin-left:630px;
+          margin-top:300px;   
+          font-style: italic;
+     }
      input[type=text] {
         width: 250px;
         padding: 12px 20px;
