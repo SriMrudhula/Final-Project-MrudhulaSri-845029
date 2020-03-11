@@ -41,7 +41,6 @@ cart1:Cart[];
       console.log("1");
     }  
   else{
-    alert("Item Not Found");
     this.load=2;
     console.log("false");
    }

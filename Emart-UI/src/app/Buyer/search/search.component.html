@@ -8,18 +8,6 @@
     </form>
   </div>
 </div>
-<!-- <ng-template [ngIf]="load==true" [ngIfElse]="load">
-
-    <div class="b1">        
-<div *ngFor="let item of items">  
-    <h3>{{item.itemName}}</h3>
-    <img src="..\assets\Images\{{item.img}}" /><br> 
-    <h4>Price:{{item.price}}</h4>
-    <h6>Description:{{item.itemDesc}} and it belongs  to subcat of cat type..</h6>
-
-</div>
-</div>
-</ng-template> -->
 
 <div  [ngSwitch]="load">
     <div *ngSwitchCase=1>    
