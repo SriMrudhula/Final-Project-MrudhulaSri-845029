@@ -1,13 +1,3 @@
-<script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-</script>
 <div class="image">
 <nav class="navbar navbar-expand-lg l fixed-top topnav navbar-dark bg-dark" id="M">
   <a class="navbar-brand" href="#">
@@ -31,7 +21,7 @@ function myFunction() {
               <a  class="color" [routerLink]="['Register-Buyer']">Buyer</a>
             </div>
     </li>
-  </ul>
+  </ul> 
 </div>
 </nav>
 <router-outlet></router-outlet>

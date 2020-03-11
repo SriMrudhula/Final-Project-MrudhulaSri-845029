@@ -15,6 +15,11 @@
       .color{
           color:white;
       }
+      #navbarSupportedContent{
+          width:400px;
+        height: 400px;
+        align-items: center;
+      }
       .dropdown:hover .dropdown-content {display: block;}
       .image{
         background-image:url("src\assets\Images\thomas.jpg"); 
