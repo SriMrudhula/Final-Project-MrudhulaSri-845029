@@ -1,0 +1,33 @@
+<div class="b1 ">
+    <div class="table">
+<div class="table-responsive">
+            <tr >
+                <th>Image</th>
+                <th>Item Id</th>
+                <th>Item Name</th>
+				<th>No of items</th>
+                <th>Bought On</th>
+                <th>Price</th>
+                <th>Total Amount</th>
+			
+            </tr>
+            
+            <ng-container *ngFor="let purchase of purch"> 
+                <ng-container *ngFor="let item of items">
+               <tr *ngIf="item.itemId==purchase.itemId">     
+             <td><img class="card-img-top" src="..\assets\Images\{{item.img}}"> </td>
+             <td >{{item.itemId}}</td>
+              <td>{{item.itemName}}</td>
+              <td>{{purchase.noOfItems}}</td>
+              <td>{{purchase.dateTime}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.price*purchase.noOfItems}}</td>
+            
+                </tr>
+            </ng-container>
+        </ng-container>
+
+            
+        </div>
+        </div>
+        </div>

@@ -5,17 +5,24 @@
 			  <div class="col">
 		  <div class=" form-group">
 			  <label> 
-			  <input type="text" formControlName="username" placeholder="UserName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
+			  <input type="text" formControlName="username" placeholder="UserName"class="form-control" (input)="Exist()" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
+			  <div *ngIf="load==true" class="p">
+				Already exists
+			</div> 
 			  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
 				  <div *ngIf="f.username.errors.required">NAME is required</div>
+
 			  </div> </label>
 		  </div>
 		</div>
 		<div class="col">
 		  <div class="form-group">
 			  <label>
-			  <input type="text" formControlName="emailid" class="form-control" placeholder="Email Id" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
-				  <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+			  <input type="text" formControlName="emailid" class="form-control" placeholder="Email Id" (input)="Exist()" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
+			  <div *ngIf="load1==true" class="p">
+				EMAIL is invaild or Already exists
+			</div>	  
+			  <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
 					  <div *ngIf="f.emailid.errors.required">Email is required</div>
 					  <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
 				  </div></label>

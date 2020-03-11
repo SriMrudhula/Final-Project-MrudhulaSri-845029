@@ -24,6 +24,7 @@
     <div class="table">
 <div class="table-responsive">
             <tr>
+                <th>Images</th>
                 <th>Item Name</th>
                 <th>Item Description</th>
                 <th>Price</th>
@@ -32,6 +33,7 @@
 				<th></th>
             </tr>
             <tr *ngFor="let i of itemlist">
+              <td><img class="card-img-top" src="..\assets\Images\{{i.img}}"> </td>
               <td>{{i.itemName}}</td>
               <td>{{i.itemDesc}}</td>
               <td>{{i.price}}</td>
@@ -40,7 +42,7 @@
               <td><button class="btn btn-danger mr-1 " (click)="Delete(i.itemId)">Delete</button></td>
             </tr>
         </div>
-        <div class="modal fade b2" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal fade b2" id="myModal" tabindex="-1" role="dialog"  >
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -66,8 +68,23 @@
                       </div>
                     </div>
                     </div>
-<div class="row">
-    <div class="col">
+                    <div class="row">
+                      <div class="col-4">
+                    <div class="form-group">
+                      <img class="card-img-top" src="..\assets\Images\{{img}}"> 
+                    </div>  
+                    </div>
+                    <div class="col-8">
+                    <div class="form-group">
+                      <label>
+                      <input type="file" [(ngModel)]='img'/>
+                    </label>
+                  </div>
+                    
+                    </div>
+                    </div>
+                <div class="row">
+                 <div class="col">
                     <div class="form-group ">
                         <label> Item Name
                         <input type="text" formControlName="iName" placeholder="Item Name"class="form-control" /> 
@@ -87,14 +104,20 @@
                           <input type="number" formControlName="stock" placeholder="Stock Number" class="form-control" >
                          </label>
                       </div>
+                      <div class="row">&nbsp; &nbsp;
+                        <div class="col-">
                       <div class="form-group">
-                          <label>Item Description</label>
-                              <textarea placeholder="Item Description" formControlName="iDesc"></textarea>
+                          <label>Item Description
+                              <textarea placeholder="Item Description" formControlName="iDesc" class="form-control"></textarea></label>
                           </div>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                          <div class="col-">
                           <div class="form-group">
                             <label>Remarks
-                                  <textarea placeholder="Remarks" formControlName="remarks"></textarea></label>
+                                  <textarea placeholder="Remarks" formControlName="remarks" class="form-control"></textarea></label>
                               </div>
+                            </div>
+                            </div>
                   <div class="text-center">
                   <button class="btn btn-primary mr-1"  (click)="UpdateItem()" data-dismiss="modal">Save</button>
                   </div>

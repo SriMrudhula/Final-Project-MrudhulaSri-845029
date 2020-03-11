@@ -17,11 +17,27 @@
       }
       .dropdown:hover .dropdown-content {display: block;}
       .image{
-        background-image:url("E:\Final-Project-MrudhulaSri-845029\Emart-UI\src\assets\Images\thomas.jpg"); 
+        background-image:url("src\assets\Images\thomas.jpg"); 
         height: 770px;
         background-repeat: no-repeat;
         background-size: cover;
         margin-top: -40px;
         width:100%;
         background-attachment: fixed;
+      }
+      @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {display: none;}
+        .topnav a.icon {
+          float: right;
+          display: block;
+       }
+      }
+      
+      @media screen and (max-width: 600px) {
+        .topnav.responsive {position: relative;}
+        .topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
       }

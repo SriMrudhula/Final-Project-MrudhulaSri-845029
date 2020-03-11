@@ -33,7 +33,7 @@ export class ViewCartComponent implements OnInit {
        this.item=res;
        console.log(this.item);
        localStorage.setItem('item',JSON.stringify(this.item));
-       this.route.navigateByUrl("/Buyer/Buy-Product");
+       this.route.navigateByUrl("/Buyer/Buy-Product");    
     })
   }
 RemoveFromCart(cartId:number)

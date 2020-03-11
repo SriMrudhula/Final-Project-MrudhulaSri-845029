@@ -67,10 +67,10 @@ namespace Emart.AdminService
             app.UseRouting();
 
 
-
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseCors("AllowOrigin");
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

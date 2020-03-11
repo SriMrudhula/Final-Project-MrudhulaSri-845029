@@ -225,3 +225,6 @@ E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\bin\Debug\netcoreapp3.1
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\obj\Debug\netcoreapp3.1\Emart.Test.dll
 E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\obj\Debug\netcoreapp3.1\Emart.Test.pdb
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\Final-Project-MrudhulaSri-845029\API\Emart\Emart.Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

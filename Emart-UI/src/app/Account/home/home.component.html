@@ -1,5 +1,15 @@
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 <div class="image">
-<nav class="navbar navbar-expand-lg l fixed-top navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg l fixed-top topnav navbar-dark bg-dark" id="M">
   <a class="navbar-brand" href="#">
     <img src="" alt="logo" style="width:40px;">
   </a>

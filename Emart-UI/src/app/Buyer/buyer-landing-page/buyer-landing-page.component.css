@@ -17,7 +17,7 @@
       }
       .dropdown:hover .dropdown-content {display: block;}
       .image{
-        background-image:url("E:\Final-Project-MrudhulaSri-845029\Emart-UI\src\assets\Images\thomas.jpg"); 
+        background-image:url("src\assets\Images\thomas.jpg"); 
         background-repeat: no-repeat;
         background-size: cover;
         height:200%;

@@ -11,14 +11,17 @@ import { Seller } from 'src/app/Models/seller';
 })
 export class RegisterBuyerComponent implements OnInit {
 accountForm:FormGroup;
+load:boolean;
 buyer:Buyer;
+load1:boolean;
+buyer1:Buyer[];
 submitted:boolean=false;
 constructor(private builder:FormBuilder,private service:AccountService){}
 
   ngOnInit() {
     this.accountForm=this.builder.group({
       id:[''],
-      username:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
+      username:['',[Validators.required,Validators.pattern('^[a-z][0-9][A-Z]{3,15}$')]],
       mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
       emailid:['',[Validators.required,Validators.email]],
       pwd:['',[Validators.required,Validators.minLength(6)]],
@@ -64,5 +67,30 @@ constructor(private builder:FormBuilder,private service:AccountService){}
     this.submitted = false;
     this.accountForm.reset();
   }
-
+  Exist():void{
+    let username=this.accountForm.value["username"];
+    let email=this.accountForm.value["emailid"];
+    this.service.GetBuyer().subscribe(res=>{
+      this.buyer1=res;
+        let f=0;
+        for(let i=0;i<this.buyer1.length;i++) {
+          if(this.buyer1[i].username==username){
+            f=1;
+            break;
+          }
+          if(this.buyer1[i].email==email){
+            f=2;
+            break;
+          }
+        }
+        if(f==1)
+          this.load=true;
+        else 
+          this.load=false;
+        if(f==2)
+        this.load1=true;
+        else
+        this.load1=false;
+    })
+  }
 }

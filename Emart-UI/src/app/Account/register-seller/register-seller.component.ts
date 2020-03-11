@@ -11,21 +11,24 @@ import { Seller } from 'src/app/Models/seller';
 export class RegisterSellerComponent implements OnInit {
   accountForm:FormGroup;
   seller:Seller;
+  seller1:Seller[];
   submitted:boolean=false;
+  load:boolean;
+  load1:boolean;
   constructor(private builder:FormBuilder,private service:AccountService){}
   
     ngOnInit(): void {
       this.accountForm=this.builder.group({
         id:[''],
- username:['',[Validators.required,Validators.pattern('^[a-z]{3,6}$')]],
- mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+ username:['',Validators.required],
+ mobile:['',Validators.required],
  emailid:['',[Validators.required,Validators.email]],
- pwd:['',[Validators.required,Validators.minLength(6)]],
+ pwd:['',Validators.required],
  addr:['',Validators.required],
  gstin :['',Validators.required],
- website:['',[Validators.required,Validators.maxLength(25)]],
- cmpName:['',[Validators.required,Validators.maxLength(30)]],
-abtCmp:['',[Validators.required,Validators.maxLength(70)]],
+ website:['',Validators.required],
+ cmpName:['',Validators.required],
+abtCmp:['',Validators.required],
  // acceptTerms:[false,Validators.requiredTrue]
       })
     }
@@ -68,5 +71,30 @@ return this.accountForm.controls;
       this.submitted = false;
       this.accountForm.reset();
     }
-    
+    Exist():void{
+      let username=this.accountForm.value["username"];
+      let email=this.accountForm.value["emailid"];
+      this.service.GetBuyer().subscribe(res=>{
+        this.seller1=res;
+          let f=0;
+          for(let i=0;i<this.seller1.length;i++) {
+            if(this.seller1[i].username==username){
+              f=1;
+              break;
+            }
+            if(this.seller1[i].email==email){
+              f=2;
+              break;
+            }
+          }
+          if(f==1)
+            this.load=true;
+          else 
+            this.load=false;
+          if(f==2)
+          this.load1=true;
+          else
+          this.load1=false;
+      })
+    }
   }

@@ -28,5 +28,12 @@ export class AccountService {
   {
     return this.http.get(this.url+'Login/'+username+"/"+pwd+"/"+user,Requestheaders);
   }
-  
+  public GetBuyer():Observable<any>
+  {
+    return this.http.get(this.url+'GetBuyer',Requestheaders);
+  }
+  public GetSeller():Observable<any>
+  {
+    return this.http.get(this.url+'GetSeller',Requestheaders);
+  }
 }

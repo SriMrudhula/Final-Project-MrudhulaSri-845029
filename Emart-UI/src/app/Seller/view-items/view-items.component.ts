@@ -25,6 +25,7 @@ subcatId:number;
 sid:number;
 subcatname:string;
   submitted:boolean=false;
+  img:string;
   constructor(private builder:FormBuilder,private service:ItemService,private route:Router){}
 
     ngOnInit(): void {
@@ -35,7 +36,8 @@ subcatname:string;
          stock:[''],
          remarks:[''],
          subCatName:[''],
-         catName:['']
+         catName:[''],
+         img:[''],
        });
  
       this.GetCategory();
@@ -51,13 +53,15 @@ subcatname:string;
         console.log(JSON.stringify(this.sellerForm.value));
       }
     }
+
     GetCategory()
     {
       this.service.GetCategories().subscribe(res=>{
         this.list=res;
         console.log(this.list);
         })
-   }    
+   }  
+
    GetSubCategory()
    {
     let catId=Number(this.sellerForm.value["catName"]);
@@ -71,12 +75,14 @@ subcatname:string;
    }
    GetItem(itemid:number)
    {
+     
     this.service.GetItems(itemid).subscribe(res=>{
       this.item=res;
       this.id=itemid;
       this.catId=this.item.catId;
       this.subcatId=this.item.subCatId;
       this.sid=this.item.sellerId;
+      this.img=this.item.img;
       console.log(this.item);
       this.service.GetSubCategoryById(this.item.subCatId).subscribe(res=>{
         this.subcat=res;
@@ -92,6 +98,7 @@ subcatname:string;
          remarks:this.item.remarks,
          subCatName:this.subcat.subCatName,
          catName:this.cat.catName,
+         img:this.item.img,
         })
       })
       });

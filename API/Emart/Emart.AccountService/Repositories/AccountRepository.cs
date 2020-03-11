@@ -39,7 +39,14 @@ namespace Emart.AccountService.Repositories
                 }
             return null;
         }
-
+        public List<Buyer> GetBuyer()
+        {
+            return _context.Buyer.ToList();
+        }
+        public List<Seller> GetSeller()
+        {
+            return _context.Seller.ToList();
+        }
         public void SellerRegister(Seller s)
         {
             _context.Seller.Add(s);

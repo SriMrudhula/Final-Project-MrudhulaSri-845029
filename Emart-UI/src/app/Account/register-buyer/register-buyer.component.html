@@ -30,14 +30,21 @@
 	  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
 		  <div class="form-group ">
 			  <label> 
-			  <input type="text" formControlName="username" placeholder="UserName"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
+			  <input type="text" formControlName="username" placeholder="UserName" (input)="Exist()" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /> 
+			  <div *ngIf="load==true" class="p">
+				  Already exists
+			  </div>
 			  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
 				  <div *ngIf="f.username.errors.required">NAME is required</div>
+				  <div *ngIf="f.username.errors.pattern">Name length should be in between 3 to 15</div>
 			  </div> </label>
 		  </div>
 		  <div class="form-group">
 			  <label>
-			  <input type="text" formControlName="emailid" class="form-control" placeholder="Email Id" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
+			  <input type="text" formControlName="emailid" class="form-control" (input)="Exist()" placeholder="Email Id" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
+			  <div *ngIf="load1==true" class="p">
+				EMAIL is invaild or Already exists
+			</div>
 				  <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
 					  <div *ngIf="f.emailid.errors.required">Email is required</div>
 					  <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
