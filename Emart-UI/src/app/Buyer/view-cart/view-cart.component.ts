@@ -19,29 +19,29 @@ export class ViewCartComponent implements OnInit {
       this.GetCart();
 
     }
-    GetCart()
-    {
+GetCart()
+{
       let buyerId=Number(localStorage.getItem('buyerId'));
-      this.service.ViewCart(buyerId).subscribe(res=>{
-        this.cartlist=res;
-        console.log(this.cartlist);
-        })
-   }  
-   BuyProduct(itemid:number)
-  {
-    this.service.GetItem(itemid).subscribe(res=>{
-       this.item=res;
-       console.log(this.item);
-       localStorage.setItem('item',JSON.stringify(this.item));
-       this.route.navigateByUrl("/Buyer/Buy-Product");    
+      this.service.ViewCart(buyerId).subscribe(res=>
+      {
+       this.cartlist=res;
+      })
+}  
+BuyProduct(itemid:number)
+{
+    this.service.GetItem(itemid).subscribe(res=>
+    {
+      this.item=res;
+      localStorage.setItem('item',JSON.stringify(this.item));
+      this.route.navigateByUrl("/Buyer/Buy-Product");    
     })
-  }
+}
 RemoveFromCart(cartId:number)
 {
-this.service.RemoveFromCart(cartId).subscribe(res=>{
-  console.log("Removed Successfully");
-  this.GetCart();
-})
+    this.service.RemoveFromCart(cartId).subscribe(res=>
+    {
+      this.GetCart();
+    })
 }
 
 }

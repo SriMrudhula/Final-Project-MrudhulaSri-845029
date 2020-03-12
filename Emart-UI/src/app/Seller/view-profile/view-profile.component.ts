@@ -31,17 +31,8 @@ sellerForm:FormGroup;
 abtCmp:[''],
       })
       this.GetSeller();
-      
     }
-    onSubmit()
-    {
-      this.submitted=true;
-      if(this.sellerForm.valid)
-      {
 
-        console.log(JSON.stringify(this.sellerForm.value));
-      }
-    }
     GetSeller()
     {
       this.n1=true;

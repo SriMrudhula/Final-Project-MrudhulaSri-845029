@@ -12,12 +12,10 @@ export class SellerLandingPageComponent implements OnInit {
     if(!localStorage.getItem('sellerId'))
        this.route.navigateByUrl("/Home/Login");
   }
-
   ngOnInit(): void {
   }
   logout()
   {
-    console.log("logged out");
     localStorage.removeItem('sellerId');
   }
 

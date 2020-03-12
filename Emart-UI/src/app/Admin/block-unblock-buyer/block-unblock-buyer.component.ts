@@ -25,7 +25,6 @@ export class BlockUnblockBuyerComponent implements OnInit {
       this.n1=true;
       this.service.GetBuyer().subscribe(res=>{
         this.list=res;
-        console.log(this.list);
         })
    }
    change() 

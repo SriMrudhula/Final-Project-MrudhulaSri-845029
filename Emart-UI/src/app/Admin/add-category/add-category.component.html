@@ -3,7 +3,7 @@
 	  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
 		  <div class="form-group ">
 			  <label> 
-			  <input type="text" formControlName="cName" placeholder="Category Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cName.errors }" /> 
+			  <input type="text" formControlName="cName" (input)="search()" placeholder="Category Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cName.errors }" /> 
 			  <div *ngIf="load==true">
 				<p>Already exists</p>
 			</div>

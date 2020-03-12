@@ -16,7 +16,7 @@
 
       <div class="form-group ">
           <label> 
-          <input type="text" formControlName="subCatName" placeholder="Subcategory Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subCatName.errors }" /> 
+          <input type="text" formControlName="subCatName" (input)="search()" placeholder="Subcategory Name"class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subCatName.errors }" /> 
           <div *ngIf="load==true">
             <p>Already exists</p>
           </div>

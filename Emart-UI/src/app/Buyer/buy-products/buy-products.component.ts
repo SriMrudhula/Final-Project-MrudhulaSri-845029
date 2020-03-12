@@ -28,8 +28,6 @@ submitted:boolean=false;
     this.item=JSON.parse(localStorage.getItem('item'));
     this.noi=1;
     this.price=this.item.price;
-    console.log(Number(localStorage.getItem('buyerId')));
-
   }
 
   ngOnInit(): void {
@@ -49,7 +47,6 @@ this.buyer1Form=this.builder.group({
       {
         this.BuyItems();
         this.n=false;
-        console.log(JSON.stringify(this.buyerForm.value));
       }
      
     }
@@ -83,15 +80,12 @@ this.purch.transStatus="Success";
 this.purch.transType=this.buyerForm.value['transaction'];
 this.purch.dateTime=new Date();
 this.purch.remarks=this.item.remarks;
-console.log(this.purch);
       }
       Purchase()
       {
-        console.log(this.purch);
         if(this.purch!=null)
         {
         this.service.BuyItem(this.purch).subscribe(res=>{
-          console.log("Purchased Successfully");
           alert("Purchased Successfully");
           this.route.navigateByUrl("/Buyer/Search");
         })
@@ -105,7 +99,6 @@ console.log(this.purch);
       this.transaction=this.buyerForm.value['transaction'];
         if(this.transaction=="Card"){
          this.card=true;
-         console.log(this.card);
         }
          else
          this.card=false;

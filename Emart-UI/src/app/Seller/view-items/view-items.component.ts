@@ -44,21 +44,12 @@ subcatname:string;
 
     }
   get f(){return this.sellerForm.controls; }
-    onSubmit()
-    {
-      this.submitted=true;
-      //display from values on sucess
-      if(this.sellerForm.valid)
-      {
-        console.log(JSON.stringify(this.sellerForm.value));
-      }
-    }
+  
 
     GetCategory()
     {
       this.service.GetCategories().subscribe(res=>{
         this.list=res;
-        console.log(this.list);
         })
    }  
 
@@ -68,7 +59,6 @@ subcatname:string;
     console.log(catId);
     this.service.GetSubCategories(catId).subscribe(res=>{
       this.sublist=res;
-      console.log(this.sublist);
     },err=>{
       console.log(err)
     })
@@ -89,7 +79,6 @@ subcatname:string;
         this.subcatname=this.subcat.subCatName;
         this.service.GetCategoryById(this.item.catId).subscribe(res=>{
           this.cat=res;
-          console.log(this.item+" "+this.item.itemDesc);
       this.sellerForm.setValue({
         iName:this.item.itemName,
          iDesc:this.item.itemDesc,

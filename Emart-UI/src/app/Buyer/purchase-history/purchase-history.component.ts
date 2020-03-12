@@ -14,29 +14,23 @@ purch:Purchase[];
 items:Items[];
   constructor(private service:BuyerService) { 
     this.buyerid=Number(localStorage.getItem('buyerId'));
-    console.log(this.buyerid);
     this.items=[];
   }
 
   ngOnInit(): void {
     this.PurchaseHistory();
   }
-PurchaseHistory()
-{
+  PurchaseHistory()
+  {
 
-  this.service.PurchaseHistory(this.buyerid).subscribe(res=>{
-this.purch=res;
-console.log(this.purch);
-for(let i=0;i<this.purch.length;i++)
-{
-this.service.GetItem(this.purch[i].itemId).subscribe(res1=>{
-  this.items.push(res1);
-  console.log(this.items);
-})
-}
-console.log(this.purch);
-  })
-
-}
-
+    this.service.PurchaseHistory(this.buyerid).subscribe(res=>{
+    this.purch=res;
+    for(let i=0;i<this.purch.length;i++)
+    {
+        this.service.GetItem(this.purch[i].itemId).subscribe(res1=>{
+        this.items.push(res1);
+        })
+    }
+    })
+  }
 }

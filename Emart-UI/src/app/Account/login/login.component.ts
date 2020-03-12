@@ -40,17 +40,13 @@ load:boolean;
       this.submitted=true;
       //display from values on sucess
       if(this.accountForm.valid)
-      {
         this.Login();
-        console.log(JSON.stringify(this.accountForm.value));
-      }
     }
       Login()
       {
          let username=this.accountForm.value["username"];
         let pwd=this.accountForm.value["pwd"];
         let user=this.accountForm.value["user"];
-        console.log(username+" "+pwd+" "+user+"user");
         if(user=="Admin" && username=="Admin" && pwd=="12345")
         {
           localStorage.setItem('Admin',"admin");          
@@ -64,14 +60,12 @@ load:boolean;
             localStorage.setItem('sellerId',this.token.sellerId.toString());
             localStorage.setItem('token',this.token.token);
             this.route.navigateByUrl('/Seller');
-            console.log(this.token);
           }
           else if(this.token.msg=="Success" && this.token.buyerId!=0){
 
             localStorage.setItem('buyerId',this.token.buyerId.toString());
             localStorage.setItem('token',this.token.token);
             this.route.navigateByUrl('/Buyer');
-            console.log(this.token);
           }
           else{
 this.load=true;

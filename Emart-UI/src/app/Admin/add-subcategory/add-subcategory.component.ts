@@ -39,18 +39,29 @@ export class AddSubcategoryComponent implements OnInit {
       this.submitted=true;
       //display from values on sucess
       if(this.adminForm.valid)
-      {
         this.Add();
-        console.log(JSON.stringify(this.adminForm.value));
-      }
+      
     }
     Get()
     {
       this.service.GetCategories().subscribe(res=>{
         this.list=res;
-        console.log(this.list);
         })
     }
+    search()
+    {
+      let subCatName=this.adminForm.value["subCatName"];
+      this.service.GetSubCategoryByName(subCatName).subscribe(res=>{
+        this.subCat1=res;
+        if(!this.subCat1)
+      {
+        this.load=false;
+       }
+     else{
+this.load=true;
+     }
+    })
+  }
       Add()
       {
         this.subCat=new SubCategory();
@@ -59,25 +70,12 @@ export class AddSubcategoryComponent implements OnInit {
          this.subCat.subCatDesc=this.adminForm.value["subCatDesc"];
         this.subCat.gst=this.adminForm.value["gst"];
         this.subCat.catId=Number(this.adminForm.value["catName"]);
-        console.log(this.subCat);
-        this.service.GetSubCategoryByName(this.subCat.subCatName).subscribe(res=>{
-          this.subCat1=res;
-          console.log(this.subCat1);
-          if(!this.subCat1)
-        {
-          this.load=false;
           this.service.AddSubCategories(this.subCat).subscribe(res=>{
-            console.log("record added");
             this.router.navigateByUrl('/Admin/View-Subcategory');
           },err=>{
             console.log(err)
           })
-      }
-      else{
-        this.load=true;
-      }
-      })
-   }
+        }
     onReset()
     {
       this.submitted = false;

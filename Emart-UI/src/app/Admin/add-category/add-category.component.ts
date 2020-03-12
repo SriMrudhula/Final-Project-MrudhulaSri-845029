@@ -36,39 +36,37 @@ export class AddCategoryComponent implements OnInit {
     onSubmit()
     {
       this.submitted=true;
-      //display from values on sucess
       if(this.adminForm.valid)
       {
         this.Add();
-        console.log(JSON.stringify(this.adminForm.value));
       }
     }
+    search()
+    {
+      let catName=this.adminForm.value["cName"];
+     this.service.GetCategoryByName(catName).subscribe(res=>{
+       this.cat1=res;
+       if(!this.cat1)
+     {
+       this.load=false;
+     }
+     else{
+this.load=true;
+     }
+    })
+  }
       Add()
       {
         this.cat=new Category();
         this.cat.catId=Math.floor(Math.random()*1000);;
          this.cat.catName=this.adminForm.value["cName"];
          this.cat.catDesc=this.adminForm.value["cDesc"];
-        console.log(this.cat);
-        this.service.GetCategoryByName(this.cat.catName).subscribe(res=>{
-          this.cat1=res;
-          console.log(this.cat1);
-          if(!this.cat1)
-        {
-          this.load=false;
         this.service.AddCategories(this.cat).subscribe(res=>{
-          console.log("record added");
           this.router.navigateByUrl('/Admin/View-Category');
         },err=>{
           console.log(err)
         })
       }
-      else{
-        this.load=true;
-      }
-      })
-
-   }
     onReset()
     {
       this.submitted = false;

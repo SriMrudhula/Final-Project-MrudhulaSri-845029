@@ -38,11 +38,9 @@ constructor(private builder:FormBuilder,private service:AccountService){}
   onSubmit()
   {
     this.submitted=true;
-    //display from values on sucess
     if(this.accountForm.valid)
     {
       this.AddBuyer();
-      console.log(JSON.stringify(this.accountForm.value));
     }
   }
     AddBuyer()
@@ -57,7 +55,6 @@ constructor(private builder:FormBuilder,private service:AccountService){}
       console.log(this.buyer);
       
       this.service.BuyerRegister(this.buyer).subscribe(res=>{
-        console.log('Record Added')
       },err=>{
         console.log(err)
       })

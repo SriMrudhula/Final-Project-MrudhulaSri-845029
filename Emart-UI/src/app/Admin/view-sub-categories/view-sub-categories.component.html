@@ -1,5 +1,5 @@
 <div class="b1 ">
-  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="adminForm">
   <div class="form-group">
       <label class="color">Category:
       <select  formControlName="Name" (click)="GetSubCategory()">
@@ -31,7 +31,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
-                <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="adminForm">
                   <div class="form-group ">
                     <label> Category Name:
                     <input type="text" formControlName="cName" readonly="readonly" placeholder="Category Name"class="form-control" > 

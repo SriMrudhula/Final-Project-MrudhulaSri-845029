@@ -17,7 +17,6 @@ export class BuyerLandingPageComponent implements OnInit {
   }
   logout()
   {
-    console.log("logged out");
     localStorage.removeItem('buyerId');
   }
 }

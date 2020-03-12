@@ -40,26 +40,20 @@ export class AddItemsComponent implements OnInit {
       this.submitted=true;
       //display from values on sucess
       if(this.sellerForm.valid)
-      {
         this.Add();
-        console.log(JSON.stringify(this.sellerForm.value));
-      }
+      
     }
     Get()
     {
       this.service.GetCategories().subscribe(res=>{
         this.catlist=res;
-        console.log(this.catlist);
-
         })
    } 
    GetSubCategory()
    {
     let catId=Number(this.sellerForm.value["catName"]);
-    console.log(catId);
     this.service.GetSubCategories(catId).subscribe(res=>{
       this.subcatlist=res;
-      console.log(this.subcatlist);
     },err=>{
       console.log(err)
     })
@@ -85,9 +79,7 @@ export class AddItemsComponent implements OnInit {
          this.item.itemId=Math.floor(Math.random()*1000);
          this.item.sellerId=Number(localStorage.getItem('sellerId'));
          this.item.img=this.file;
-        console.log(this.item);
         this.service.AddItem(this.item).subscribe(res=>{
-          console.log("record added");
           this.router.navigateByUrl('/Seller/View-Items');
         },err=>{
           console.log(err)

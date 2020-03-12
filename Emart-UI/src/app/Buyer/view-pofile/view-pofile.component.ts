@@ -27,16 +27,6 @@ buyerForm:FormGroup;
     });
    this.GetBuyer();
   }
-
-  onSubmit()
-  {
-    this.submitted=true;
-    if(this.buyerForm.valid)
-    {
-
-      console.log(JSON.stringify(this.buyerForm.value));
-    }
-  }
   GetBuyer()
   {
     this.n1=true;
@@ -46,7 +36,6 @@ buyerForm:FormGroup;
       this.id=this.buyer.id;
       this.pwd=this.buyer.pwd;
       this.date=this.buyer.createDateTime;
-      console.log(this.buyer);
       this.buyerForm.setValue({
       username:this.buyer.username,
       mobile:this.buyer.mobile,
@@ -71,9 +60,7 @@ buyerForm:FormGroup;
       this.buyer.email=this.buyerForm.value["emailid"];
       this.buyer.mobile=this.buyerForm.value["mobile"];
       this.buyer.createDateTime=this.date;
-      console.log(this.buyer);
       this.service.EditProfile(this.buyer).subscribe(res=>{
-        console.log('Record Updated');
         this.n=false;
         this.n1=true;
         this.GetBuyer();

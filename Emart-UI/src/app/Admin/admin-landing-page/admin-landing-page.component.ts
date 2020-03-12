@@ -17,7 +17,6 @@ export class AdminLandingPageComponent implements OnInit {
   }
   logout()
   {
-    console.log("logged out");
     localStorage.removeItem('Admin');
   }
 }

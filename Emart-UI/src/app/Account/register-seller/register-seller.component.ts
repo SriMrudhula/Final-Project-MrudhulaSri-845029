@@ -35,11 +35,9 @@ abtCmp:['',Validators.required],
     onSubmit()
     {
       this.submitted=true;
-      //display from values on sucess
       if(this.accountForm.valid)
       {
         this.AddSeller();
-        console.log(JSON.stringify(this.accountForm.value));
       }
     }
       AddSeller()
@@ -55,9 +53,7 @@ abtCmp:['',Validators.required],
         this.seller.compWebsite=this.accountForm.value["website"];
         this.seller.abtCompany=this.accountForm.value["abtCmp"];
         this.seller.postalAddr=this.accountForm.value["addr"]
-        console.log(this.seller);
         this.service.SellerRegister(this.seller).subscribe(res=>{
-          console.log('Record Added')
         },err=>{
           console.log(err)
         })

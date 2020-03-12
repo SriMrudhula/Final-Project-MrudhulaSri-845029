@@ -34,26 +34,16 @@ cat:Category;
 
     }
     get f(){return this.adminForm.controls; }
-    onSubmit()
-    {
-      this.submitted=true;
-      //display from values on sucess
-      if(this.adminForm.valid)
-      {
-        console.log(JSON.stringify(this.adminForm.value));
-      }
-    }
     GetCategory()
     {
       this.service.GetCategories().subscribe(res=>{
         this.list=res;
-        console.log(this.list);
         })
    }    
    GetSubCategory()
    {
     let catId=Number(this.adminForm.value["Name"]);
-    console.log(catId);
+
     this.service.GetSubCategories(catId).subscribe(res=>{
       this.sublist=res;
     },err=>{
@@ -64,7 +54,7 @@ cat:Category;
    {
      
      this.service.DeleteSubcategory(subcatId).subscribe(res=>{
-       console.log("record deleted");
+
        alert("Record Deleted Successfully");
        this.GetSubCategory();
      })
@@ -76,8 +66,6 @@ cat:Category;
       this.service.GetCategoryById(this.subcat.catId).subscribe(res=>{
         this.cat=res;
         this.catname=this.cat.catName;     
-      console.log(this.subcat+"sub cat");
-      console.log(this.catname+" jfkgjm");
       this.adminForm.setValue({
         cName:this.catname,
         Name:"",
@@ -94,9 +82,7 @@ cat:Category;
       this.subcat.catId=this.id;
   this.subcat.subCatName=this.adminForm.value["scName"];
   this.subcat.subCatDesc=this.adminForm.value["scDesc"];
-  console.log(this.subcat);
   this.service.UpdateSubCategory(this.subcat).subscribe(res=>{
-    console.log('Record Updated')
     this.GetSubCategory();
   },err=>{
     console.log(err)

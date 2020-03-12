@@ -29,22 +29,11 @@ export class ViewCategoriesComponent implements OnInit {
     {
       this.service.GetCategories().subscribe(res=>{
         this.list=res;
-        console.log(this.list);
         })
    } 
-   onSubmit()
-    {
-      //display from values on sucess
-      if(this.adminForm.valid)
-      {
-
-        console.log(JSON.stringify(this.adminForm.value));
-      }
-    }
     Delete(catId:number)
     {
       this.service.DeleteCategory(catId).subscribe(res=>{
-        console.log("record deleted");
         this.Get();
       })
     }   
@@ -54,7 +43,6 @@ CategoryById(cat_id:number)
     this.service.GetCategoryById(cat_id).subscribe(res=>{
       this.cat=res;
       this.id=cat_id;
-      console.log(this.cat);
       this.adminForm.setValue({
         cName:this.cat.catName,
         cDesc:this.cat.catDesc,
@@ -67,9 +55,7 @@ CategoryById(cat_id:number)
       this.cat.catId=this.id;
   this.cat.catName=this.adminForm.value["cName"];
   this.cat.catDesc=this.adminForm.value["cDesc"];
-  console.log(this.cat);
   this.service.UpdateCategory(this.cat).subscribe(res=>{
-    console.log('Record Updated')
     this.Get();
   },err=>{
     console.log(err)
