@@ -17,7 +17,7 @@
       }
 
       .navbar-right{
-        margin-left:1000px;
+        margin-left:1100px;
               }
           .bottom{
             margin-top:500px;
@@ -26,7 +26,7 @@
       .dropdown:hover .dropdown-content {display: block;}
       .image{
         background-image:url("src\assets\Images\thomas.jpg"); 
-        height: 770px;
+        height:770px;
         background-repeat: no-repeat;
         background-size: cover;
         margin-top: -40px;

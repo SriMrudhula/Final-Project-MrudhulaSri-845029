@@ -31,14 +31,16 @@ const routes: Routes = [
         {path:'Add-Item',component:AddItemsComponent},
         {path:'View-Items',component:ViewItemsComponent},
          {path:'View-Profile',component:ViewProfileComponent},
-        {path:'view-Reports',component:ViewReportsComponent}
+        {path:'View',component:ViewReportsComponent},
+        {path:'',redirectTo:'View',pathMatch:"full"}
       ]},
   {path:'Buyer',component:BuyerLandingPageComponent,children:[
         {path:'Buy-Product',component:BuyProductsComponent},
         {path:'Purchase-History',component:PurchaseHistoryComponent},
         {path:'Search',component:SearchComponent},
         {path:'View-Cart',component:ViewCartComponent},
-        {path:'View-Buyer-Profile',component:ViewPofileComponent}
+        {path:'View-Buyer-Profile',component:ViewPofileComponent},
+        {path:'',redirectTo:'Search',pathMatch:"full"}
   ]},
   {path:'Admin',component:AdminLandingPageComponent,children:[
          {path:'Add-Category',component:AddCategoryComponent},

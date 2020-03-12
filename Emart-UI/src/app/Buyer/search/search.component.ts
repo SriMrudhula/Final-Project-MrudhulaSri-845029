@@ -27,13 +27,21 @@ cart1:Cart[];
     this.buyerForm=this.builder.group({
       itemName:[''],
     })
+    this.ViewItems();
   }
-
+ViewItems()
+{
+  this.load=1;
+  this.service.ViewItems().subscribe(res=>{
+    this.items=res;
+  })
+}
   SearchItem()
   {
     let name=this.buyerForm.value['itemName'];
     this.service.SearchItem(name).subscribe(res=>{
     this.items=res;
+    console.log(this.items);
     if((this.items).length!=0)
       this.load=1;
     else

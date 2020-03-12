@@ -41,7 +41,7 @@ cat:Category;
         })
    }    
    GetSubCategory()
-   {
+   {  
     let catId=Number(this.adminForm.value["Name"]);
 
     this.service.GetSubCategories(catId).subscribe(res=>{
@@ -54,8 +54,6 @@ cat:Category;
    {
      
      this.service.DeleteSubcategory(subcatId).subscribe(res=>{
-
-       alert("Record Deleted Successfully");
        this.GetSubCategory();
      })
    }   

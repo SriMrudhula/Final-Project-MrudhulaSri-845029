@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./seller-landing-page.component.css']
 })
 export class SellerLandingPageComponent implements OnInit {
-
+user:string;
   constructor(private route:Router) { 
+  this.user=localStorage.getItem('Username')
+
     if(!localStorage.getItem('sellerId'))
        this.route.navigateByUrl("/Home/Login");
   }

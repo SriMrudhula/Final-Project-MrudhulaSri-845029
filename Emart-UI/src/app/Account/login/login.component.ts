@@ -18,7 +18,6 @@ load:boolean;
   submitted:boolean=false;
   token:Token;
   constructor(private builder:FormBuilder,private service:AccountService,private route:Router){}
-  
     ngOnInit(): void {
       //bussiness functionality
       this.accountForm=this.builder.group({
@@ -27,7 +26,6 @@ load:boolean;
         user:['',Validators.required]
       });
     }
-  
   
     get f()
     {
@@ -47,6 +45,7 @@ load:boolean;
          let username=this.accountForm.value["username"];
         let pwd=this.accountForm.value["pwd"];
         let user=this.accountForm.value["user"];
+        localStorage.setItem('Username',username);
         if(user=="Admin" && username=="Admin" && pwd=="12345")
         {
           localStorage.setItem('Admin',"admin");          
@@ -62,13 +61,12 @@ load:boolean;
             this.route.navigateByUrl('/Seller');
           }
           else if(this.token.msg=="Success" && this.token.buyerId!=0){
-
             localStorage.setItem('buyerId',this.token.buyerId.toString());
             localStorage.setItem('token',this.token.token);
             this.route.navigateByUrl('/Buyer');
           }
           else{
-this.load=true;
+          this.load=true;
           }
         },
         err=>{

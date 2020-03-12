@@ -55,4 +55,8 @@ public PurchaseHistory(buyerid:number):Observable<any>
 {
   return this.http.get(this.url+'PurchaseHistory/'+buyerid,Requestheaders);
 }
+public ViewItems():Observable<any>
+{
+  return this.http.get(this.url+'ViewItems',Requestheaders);
+}
 }

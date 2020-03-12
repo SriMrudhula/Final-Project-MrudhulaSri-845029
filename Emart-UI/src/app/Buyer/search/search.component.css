@@ -1,15 +1,19 @@
 .p{
     margin-left:270px;   
+    margin-top:205px;  
 }
 
 .el{
     margin-left:270px;   
     margin-top:300px;
 }
+.img{
+height:250px;
+}
      .card{
         float:left;
         margin-left:5px; 
-        margin-top:220px;   
+        margin-top: 40px;
         background-color: rgba(0,0,0,0.5);
         width:20%;
         height:20%;

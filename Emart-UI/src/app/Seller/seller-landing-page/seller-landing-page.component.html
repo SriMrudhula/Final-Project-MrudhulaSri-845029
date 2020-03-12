@@ -11,9 +11,6 @@
         <li class="nav-item active">
             <a class="nav-link" [routerLink]="['/Seller']" >Home</a>
           </li>
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['Add-Item']" >Add Items</a>
-        </li>
           <li class="nav-item active">
             <a class="nav-link" [routerLink]="['View-Profile']" >My Profile</a>
           </li>
@@ -24,10 +21,10 @@
     </div>
     </nav>
     <div class="sidenav">
+      <a class="nav-link" [routerLink]="['Add-Item']" >Add Items</a>
       <a class="nav-link" [routerLink]="['View-Items']" >View Items</a>
-      <a class="nav-link" [routerLink]="['view-Reports']" >Reports</a>
-      <a class="nav-link bottom" [routerLink]="['View-Profile']" ><span class="fa fa-user-circle" style="font-size:30px;"></span>My Profile</a>
     </div>
+
     <router-outlet></router-outlet>
     </div>
     

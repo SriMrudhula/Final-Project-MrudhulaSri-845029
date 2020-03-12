@@ -26,6 +26,7 @@ sid:number;
 subcatname:string;
   submitted:boolean=false;
   img:string;
+  subId:number;
   constructor(private builder:FormBuilder,private service:ItemService,private route:Router){}
 
     ngOnInit(): void {
@@ -37,11 +38,10 @@ subcatname:string;
          remarks:[''],
          subCatName:[''],
          catName:[''],
-         img:[''],
        });
  
       this.GetCategory();
-
+    
     }
   get f(){return this.sellerForm.controls; }
   
@@ -65,8 +65,7 @@ subcatname:string;
    }
    GetItem(itemid:number)
    {
-     
-    this.service.GetItems(itemid).subscribe(res=>{
+        this.service.GetItems(itemid).subscribe(res=>{
       this.item=res;
       this.id=itemid;
       this.catId=this.item.catId;
@@ -87,7 +86,7 @@ subcatname:string;
          remarks:this.item.remarks,
          subCatName:this.subcat.subCatName,
          catName:this.cat.catName,
-         img:this.item.img,
+      
         })
       })
       });
@@ -96,9 +95,9 @@ subcatname:string;
   }
    ViewItems()
    {
-     let subcat=Number(this.sellerForm.value["subCatName"]);
-     console.log(subcat);
-     this.service.ViewItems(Number(localStorage.getItem('sellerId')),subcat).subscribe(res=>{
+     this.subId=Number(this.sellerForm.value["subCatName"]);
+     console.log(this.subId);
+     this.service.ViewItems(Number(localStorage.getItem('sellerId')),this.subId).subscribe(res=>{
        this.itemlist=res;
        console.log(this.itemlist);
      },err=>{
@@ -122,6 +121,7 @@ this.item.catId=this.catId;
 this.item.subCatId=this.subcatId;
 this.item.itemId=this.id;  
 this.item.sellerId=this.sid;
+this.item.img=this.img;
   this.item.itemName=this.sellerForm.value["iName"];
   this.item.itemDesc=this.sellerForm.value["iDesc"];
   this.item.price=this.sellerForm.value["price"];
@@ -130,6 +130,7 @@ this.item.sellerId=this.sid;
   console.log(this.item);
   this.service.UpdateItem(this.item).subscribe(res=>{
     console.log('Record Updated');
+    this.subId=this.item.sellerId;
     this.ViewItems();
   },err=>{
     console.log(err)

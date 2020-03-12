@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-reports.component.css']
 })
 export class ViewReportsComponent implements OnInit {
-
-  constructor() { }
+user:string;
+  constructor() { 
+    this.user=localStorage.getItem('Username')
+  }
 
   ngOnInit(): void {
   }
