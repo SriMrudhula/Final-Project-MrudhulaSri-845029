@@ -36,7 +36,7 @@
               <td><img class="card-img-top" src="..\assets\Images\{{i.img}}"> </td>
               <td>{{i.itemName}}</td>
               <td>{{i.itemDesc}}</td>
-              <td>{{i.price}}</td>
+              <td>{{i.price |currency:"INR"}}</td>
               <td>{{i.remarks}}</td>
               <td><button class="btn btn-primary mr-1" (click)="GetItem(i.itemId)" data-toggle="modal" data-target="#myModal">Edit</button></td>
               <td><button class="btn btn-danger mr-1 " (click)="Delete(i.itemId)">Delete</button></td>

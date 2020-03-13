@@ -5,7 +5,7 @@
         <img class="card-img-top" class="img" src="..\assets\Images\{{cart.img}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{cart.itemName}}</h5>
-          <h4>Price:{{cart.price}}</h4>
+          <h4>Price:{{cart.price|currency:"INR"}}</h4>
           <p class="card-text">Description:{{cart.itemDesc}}</p>
           <button class="btn btn-sm btn-primary" (click)="BuyProduct(cart.itemId)">Buy</button>&nbsp;
           <button class="btn btn-sm btn-primary" (click)="RemoveFromCart(cart.cartid)">Remove</button>

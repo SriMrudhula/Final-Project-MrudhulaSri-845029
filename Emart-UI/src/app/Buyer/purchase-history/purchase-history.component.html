@@ -19,9 +19,9 @@
              <td >{{item.itemId}}</td>
               <td>{{item.itemName}}</td>
               <td>{{purchase.noOfItems}}</td>
-              <td>{{purchase.dateTime}}</td>
-              <td>{{item.price}}</td>
-              <td>{{item.price*purchase.noOfItems}}</td>
+              <td>{{purchase.dateTime  |date}}</td>
+              <td>{{item.price |currency:"INR" }}</td>
+              <td>{{item.price*purchase.noOfItems |currency:"INR"}}</td>
             
                 </tr>
             </ng-container>

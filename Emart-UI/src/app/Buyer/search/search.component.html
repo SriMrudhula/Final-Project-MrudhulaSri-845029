@@ -17,7 +17,7 @@
         <img class="card-img-top" class="img" src="..\assets\Images\{{item.img}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{item.itemName}}</h5>
-          <h4>Price:{{item.price}}</h4>
+          <h4>Price:{{item.price |currency:"INR"}}</h4>
           <p class="card-text">Description:{{item.itemDesc}}</p>
           <button class="btn btn-sm btn-primary" (click)="BuyProduct(item)">Buy</button>&nbsp;
           <button class="btn btn-sm btn-primary" (click)="AddToCart(item)">Add to cart</button>

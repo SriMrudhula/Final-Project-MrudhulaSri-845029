@@ -88,21 +88,11 @@
       </div>
       <div class="modal-body">
    <pre>  
-    <div *ngIf="card1==true else btn1">    
+
         Item Name: {{item.itemName}}
-        Price: {{item.price}}
+        Price: {{item.price|currency:"INR"}}
         Number of Items: {{noi}}
-        Total Amount: {{price}}
-        Card Number:{{cardno}}
-        Account Holder Name:{{cardname}}
-        Cvv: {{cvv}}
-        </div>
-<ng-template #btn1>
-  Item Name: {{item.itemName}}
-        Price: {{item.price}}
-        Number of Items: {{noi}}
-        Total Amount: {{price}}
-</ng-template>
+        Total Amount: {{price|currency:"INR"}}
 
       </pre>
         <div class="text-center">
