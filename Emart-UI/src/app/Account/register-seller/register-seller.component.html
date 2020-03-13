@@ -1,5 +1,5 @@
 	<div  class="jumbotron jumbotron-fluid b1" >
-		<h2>Seller Registration</h2><br>
+		<h2>Registration</h2><br>
 	  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
 		  <div class="row">
 			  <div class="col">
@@ -46,6 +46,7 @@
 			<input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
 			<div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
 				<div *ngIf="f.mobile.errors.required">Mobile Number is required</div>	  
+				<div *ngIf="f.mobile.errors.pattern">Mobile Number with 10 digits</div>
 			</div>
 		  </label>
   </div>
@@ -77,7 +78,7 @@
 			<label>
 			<input type="text" formControlName="website" placeholder="Website" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.website.errors }" />
 			<div *ngIf="submitted && f.website.errors" class="invalid-feedback">
-				<div *ngIf="f.website.errors.required">Mobile Number is required</div>	  
+				<div *ngIf="f.website.errors.required">Website is required</div>	  
 			</div>
 		  </label>
       </div>

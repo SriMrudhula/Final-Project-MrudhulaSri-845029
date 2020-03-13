@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators, MinLengthValidator} from '@angular/forms';
 import { AccountService } from 'src/app/Services/account.service';
 import { Buyer } from 'src/app/Models/buyer';
 import { Seller } from 'src/app/Models/seller';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-buyer',
   templateUrl: './register-buyer.component.html',
@@ -16,20 +17,18 @@ buyer:Buyer;
 load1:boolean;
 buyer1:Buyer[];
 submitted:boolean=false;
-constructor(private builder:FormBuilder,private service:AccountService){}
+constructor(private builder:FormBuilder,private service:AccountService,private route:Router){}
 
   ngOnInit() {
     this.accountForm=this.builder.group({
       id:[''],
-      username:['',[Validators.required,Validators.pattern('^[a-z][0-9][A-Z]{3,15}$')]],
+      username:['',Validators.required],
       mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
       emailid:['',[Validators.required,Validators.email]],
-      pwd:['',[Validators.required,Validators.minLength(6)]],
+      pwd:['',Validators.required],
       createdatetime:[''],    
     });
   }
-
-
   get f()
   {
     return this.accountForm.controls;
@@ -55,6 +54,7 @@ constructor(private builder:FormBuilder,private service:AccountService){}
       console.log(this.buyer);
       
       this.service.BuyerRegister(this.buyer).subscribe(res=>{
+        this.route.navigateByUrl('/Home/Login');
       },err=>{
         console.log(err)
       })

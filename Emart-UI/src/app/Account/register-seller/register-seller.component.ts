@@ -3,6 +3,7 @@ import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { AccountService } from 'src/app/Services/account.service';
 import { Buyer } from 'src/app/Models/buyer';
 import { Seller } from 'src/app/Models/seller';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-seller',
   templateUrl: './register-seller.component.html',
@@ -15,13 +16,13 @@ export class RegisterSellerComponent implements OnInit {
   submitted:boolean=false;
   load:boolean;
   load1:boolean;
-  constructor(private builder:FormBuilder,private service:AccountService){}
+  constructor(private builder:FormBuilder,private service:AccountService,private route:Router){}
   
     ngOnInit(): void {
       this.accountForm=this.builder.group({
         id:[''],
  username:['',Validators.required],
- mobile:['',Validators.required],
+ mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
  emailid:['',[Validators.required,Validators.email]],
  pwd:['',Validators.required],
  addr:['',Validators.required],
@@ -29,7 +30,6 @@ export class RegisterSellerComponent implements OnInit {
  website:['',Validators.required],
  cmpName:['',Validators.required],
 abtCmp:['',Validators.required],
- // acceptTerms:[false,Validators.requiredTrue]
       })
     }
     onSubmit()
@@ -54,6 +54,7 @@ abtCmp:['',Validators.required],
         this.seller.abtCompany=this.accountForm.value["abtCmp"];
         this.seller.postalAddr=this.accountForm.value["addr"]
         this.service.SellerRegister(this.seller).subscribe(res=>{
+          this.route.navigateByUrl('/Home/Login')
         },err=>{
           console.log(err)
         })
@@ -68,10 +69,12 @@ return this.accountForm.controls;
       this.accountForm.reset();
     }
     Exist():void{
+      console.log("entered");
       let username=this.accountForm.value["username"];
       let email=this.accountForm.value["emailid"];
       this.service.GetBuyer().subscribe(res=>{
         this.seller1=res;
+        console.log(this.seller1);
           let f=0;
           for(let i=0;i<this.seller1.length;i++) {
             if(this.seller1[i].username==username){
@@ -80,6 +83,7 @@ return this.accountForm.controls;
             }
             if(this.seller1[i].email==email){
               f=2;
+              console.log("f=2");
               break;
             }
           }

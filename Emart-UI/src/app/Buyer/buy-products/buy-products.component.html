@@ -32,7 +32,6 @@
              <select  class="form-control" formControlName="transaction" (change)="display()" >
                  <option value="Card">Card</option>
                  <option value="Cash">Cash</option>
-                 <option value="Net Banking">Net Banking</option>
              </select>
             </label><br></div></form>
             <div *ngIf="card==true else btn">
@@ -89,6 +88,7 @@
       </div>
       <div class="modal-body">
    <pre>  
+    <div *ngIf="card1==true else btn1">    
         Item Name: {{item.itemName}}
         Price: {{item.price}}
         Number of Items: {{noi}}
@@ -96,6 +96,14 @@
         Card Number:{{cardno}}
         Account Holder Name:{{cardname}}
         Cvv: {{cvv}}
+        </div>
+<ng-template #btn1>
+  Item Name: {{item.itemName}}
+        Price: {{item.price}}
+        Number of Items: {{noi}}
+        Total Amount: {{price}}
+</ng-template>
+
       </pre>
         <div class="text-center">
         <button class="btn btn-primary mr-1"  data-dismiss="modal" (click)="Purchase()">Confirm Transaction</button>

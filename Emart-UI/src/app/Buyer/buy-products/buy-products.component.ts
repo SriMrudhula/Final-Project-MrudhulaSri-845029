@@ -4,6 +4,7 @@ import { Purchase } from 'src/app/Models/purchase';
 import { BuyerService } from 'src/app/Services/buyer.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-buy-products',
@@ -23,6 +24,7 @@ cardname:string;
 cvv:number;
 cardno:number;
 n:boolean=true;
+card1:boolean;
 submitted:boolean=false;
   constructor(private service:BuyerService,private builder:FormBuilder,private route:Router) { 
     this.item=JSON.parse(localStorage.getItem('item'));
@@ -48,7 +50,10 @@ this.buyer1Form=this.builder.group({
         this.BuyItems();
         this.n=false;
       }
-     
+      if(this.buyer1Form.valid)
+      {
+      this.BuyItems();
+      }
     }
       Decrement()
       {
@@ -67,9 +72,6 @@ Increment()
   this.price=this.item.price*this.noi;
 }
 BuyItems(){
-this.cardname=this.buyerForm.value['cardName'];
-this.cardno=this.buyerForm.value['cardNo'];
-this.cvv=this.buyerForm.value['cvv'];
 this.purch=new Purchase();
 this.purch.Id=Math.floor(Math.random()*1000);
 this.purch.sellerId=this.item.sellerId;
@@ -97,11 +99,15 @@ this.purch.remarks=this.item.remarks;
       display()
       {
       this.transaction=this.buyerForm.value['transaction'];
+
         if(this.transaction=="Card"){
          this.card=true;
+         this.card1=true;
         }
-         else
+         else{
          this.card=false;
+         this.card1=false;
+         }
       }
       get f()
       {

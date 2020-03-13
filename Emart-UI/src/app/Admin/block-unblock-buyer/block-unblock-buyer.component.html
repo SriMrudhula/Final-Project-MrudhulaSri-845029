@@ -6,15 +6,13 @@
                 <th>UserName</th>
 				<th>Email</th>
 				<th>Mobile</th>
-                <th></th>
-                <th></th>
-                <th></th>
+               
             </tr>
             <tr *ngFor="let item of list">
               <td>{{item.username}}</td>
               <td>{{item.email}}</td>
               <td>{{item.mobile}}</td>
-              <td><button class="btn btn-danger mr-1" id="Button" (click)="change()" value=x ></button></td>
+              <!-- <td><button class="btn btn-danger mr-1" id="Button" (click)="change()" value=x ></button></td> -->
               <!-- <td><button class="btn btn-danger mr-1" id="Button" (click)="change()" >UnBlock</button></td> -->
             </tr>
         </div>

@@ -2,6 +2,9 @@
      .p{
         margin-left:270px;   
     }
+    .img{
+        height:250px;
+        }
     .card{
         float:left;
         margin-left:5px; 

@@ -1,32 +1,5 @@
-<!-- <div class="b1">
-    <h2>Register</h2>
-    <br>
-     <form [formGroup]="accountForm">
-		<div class="form-group">
-			<input type="text" formControlName="username" class="form-control" placeholder="Username">
-		</div>
-		<div class="form-group">
-			<input  type="password" formControlName="pwd" class="form-control" placeholder="Password">
-		</div>
-		<div class="form-group">
-			<input type="email"  formControlName="email" class="form-control" placeholder="Email">
-		</div>
-		<div class="form-group">
-			<input  type="text" formControlName="mobile" placeholder="Mobile number" class="form-control">
-		</div>
-	<div >
-	<button class="btn btn-primary mr-1" (click)="AddBuyer()">Register</button>
-	<button class="btn btn-primary mr-1" type="reset" (click)="onReset()">Reset</button>
-</div>
-	<br>	
-		<div class="d-flex justify-content-center links">
-			Have an account?<a [routerLink]="['Login']" >Login</a>
-		</div>
-    </form>
-	</div> -->
-	
 	<div  class="jumbotron jumbotron-fluid b1" >
-		<h3>Buyer Registration</h3><br>
+		<h3>Registration</h3><br>
 	  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
 		  <div class="form-group ">
 			  <label> 
@@ -36,7 +9,7 @@
 			  </div>
 			  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
 				  <div *ngIf="f.username.errors.required">NAME is required</div>
-				  <div *ngIf="f.username.errors.pattern">Name length should be in between 3 to 15</div>
+
 			  </div> </label>
 		  </div>
 		  <div class="form-group">
@@ -55,6 +28,7 @@
 			  <input type="password" formControlName="pwd" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }" />
 			  <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
 				  <div *ngIf="f.pwd.errors.required">Password is required</div>
+				  <div *ngIf="f.pwd.errors.pattern">Minimum Length should be 6</div>
 			  </div>
 			</label>
 		  </div>
@@ -63,6 +37,7 @@
 			  <input type="text" formControlName="mobile" placeholder="Mobile Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
 			  <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
 				  <div *ngIf="f.mobile.errors.required">Mobile Number is required</div>	  
+				  <div *ngIf="f.mobile.errors.pattern">Mobile Number with 10 digits</div>
 			  </div>
 			</label>
 	</div>
